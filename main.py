@@ -1,9 +1,9 @@
-
-from flask import redirect,jsonify, json, Flask
+from flask import redirect, jsonify, json, Flask
 
 # from apiclient.discovery import build
 # from oauth2client.service_account import ServiceAccountCredentials
 # from flask_cors import CORS
+from utils import CreateWordResponse
 
 app = Flask(__name__)
 app.config["DEBUG"] = True
@@ -12,16 +12,17 @@ app.config["DEBUG"] = True
 with open('version.json', 'r') as vj:
     number = json.load(vj)
 
+
 @app.route('/')
 def index():
-    return redirect('nasoj.me')
+    return redirect('https://nasoj.me/404.html')
+
 
 @app.errorhandler(404)
 def page_not_found(error):
     """Custom 404 page."""
     return redirect('https://nasoj.me/404.html'), 404
     # CORS(app)
-
 
 
 @app.get('/v1/foodle/version')
@@ -47,7 +48,8 @@ def search_query_infinite():
     return CreateWordResponse(infinite_word, 200, 'infinite')
 
 
-@app.route("/v1/foodle/stats/<mode>/<action>", methods=["POST"])  # i know app.post but a plugin im using to debug doesn't
+@app.route("/v1/foodle/stats/<mode>/<action>",
+           methods=["POST"])  # i know app.post but a plugin im using to debug doesn't
 def statistics(mode: str, action: str):
     if mode.lower == 'daily':
         if action.lower() == 'win':
