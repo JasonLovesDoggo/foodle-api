@@ -9,3 +9,4 @@ def CreateWordResponse(word: str, status_code: int, mode: str):
             'word': word,
         }
     )
+

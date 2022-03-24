@@ -17,6 +17,10 @@ with open('version.json', 'r') as vj:
 def index():
     return redirect('https://nasoj.me/404.html')
 
+@app.errorhandler(status_code)
+def function_name(error):
+    num = random.randrange(1, 2)
+    return render_template('templates/error.html', content=f"https://http.{'cat' if num == 1 else 'dog'}/{statut_code}.jpg", error_code=status_code),status_code
 
 @app.errorhandler(404)
 def page_not_found(error):
