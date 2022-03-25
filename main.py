@@ -1,4 +1,6 @@
-from flask import redirect, jsonify, json, Flask
+from random import randrange
+
+from flask import redirect, jsonify, json, Flask, render_template
 
 # from apiclient.discovery import build
 # from oauth2client.service_account import ServiceAccountCredentials
@@ -17,9 +19,11 @@ with open('version.json', 'r') as vj:
 def index():
     return redirect('https://nasoj.me')
 
-@app.errorhandler(status_code)
+@app.errorhandler(404)
+@app.errorhandler(500)
+@app.errorhandler(400)
 def function_name(error):
-    num = random.randrange(1, 5)
+    num = randrange(1, 5)
     return render_template('templates/error.html', content=f"https://http.{'cat' if num == 1 else 'dog'}/{status_code}.jpg", error_code=status_code),status_code
 
 @app.errorhandler(404)
