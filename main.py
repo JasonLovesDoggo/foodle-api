@@ -1,3 +1,4 @@
+from werkzeug.exceptions import HTTPException
 from random import randrange
 
 from flask import redirect, jsonify, json, Flask, render_template
@@ -7,7 +8,7 @@ from flask import redirect, jsonify, json, Flask, render_template
 # from flask_cors import CORS
 from utils import CreateWordResponse
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates')
 app.config["DEBUG"] = True
 # CORS(app)
 
@@ -19,18 +20,10 @@ with open('version.json', 'r') as vj:
 def index():
     return redirect('https://nasoj.me')
 
-@app.errorhandler(404)
-@app.errorhandler(500)
-@app.errorhandler(400)
+@app.errorhandler(HTTPException)
 def function_name(error):
-    num = randrange(1, 5)
-    return render_template('templates/error.html', content=f"https://http.{'cat' if num == 1 else 'dog'}/{status_code}.jpg", error_code=status_code),status_code
-
-@app.errorhandler(404)
-def page_not_found(error):
-    """Custom 404 page."""
-    return redirect('https://nasoj.me/404.html'), 404
-    # CORS(app)
+    num = randrange(1, 3)
+    return render_template('error.html', content=f"https://http.{'cat' if num == 1 else 'dog'}/{error.code}.jpg", error=error)
 
 
 @app.get('/v1/foodle/version')
