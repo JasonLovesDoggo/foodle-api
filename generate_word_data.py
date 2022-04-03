@@ -23,46 +23,18 @@ words = ['fresh', 'crust', 'serve', 'flesh', 'seedy', 'corny', 'salad', 'spicy',
          'prune', 'aspic', 'rujak', 'gummy', 'cakes', 'baozi', 'melty']
 
 
-def generate_hint(word):
-    lengh = len(set(word))
-    if lengh == 4:
-        return 'Hint: Double Letters!'
-    elif lengh == 3:
-        return 'Hint: Two Sets Of Double Letters!'
-    else:
-        return ''
-
-
-words_dict = {word: ['', generate_hint(word)] for word in words}
+#def generate_hint(word):
+#    lengh = len(set(word))
+#    if lengh == 4:
+#        return 'Hint: Double Letters!'
+#    elif lengh == 3:
+#        return 'Hint: Two Sets Of Double Letters!'
+#    else:                                                  If hints.json is ever deleted use this
+#        return ''
+# words_dict = {word: ['', generate_hint(word)] for word in words}
 
 word_data = {}
 failed_words = []
-example_data = [{"word": "apron", "phonetic": "/ˈeɪ.pɹən/", "phonetics": [{"text": "/ˈeɪ.pɹən/", "audio": ""},
-                                                                          {"text": "/ˈeɪ.pɹən/",
-                                                                           "audio": "https://api.dictionaryapi.dev/media/pronunciations/en/apron-us.mp3",
-                                                                           "sourceUrl": "https://commons.wikimedia.org/w/index.php?curid=1317627",
-                                                                           "license": {"name": "BY-SA 3.0",
-                                                                                       "url": "https://creativecommons.org/licenses/by-sa/3.0"}}],
-                 "meanings": [{"partOfSpeech": "noun", "definitions": [{
-                     "definition": "An article of clothing worn over the front of the torso and/or legs for protection from spills; also historically worn by Freemasons and as part of women's fashion.",
-                     "synonyms": [], "antonyms": []},
-                     {"definition": "The short cassock ordinarily worn by English bishops.", "synonyms": [],
-                      "antonyms": []},
-                     {"definition": "A hard surface bordering a structure or area.", "synonyms": [], "antonyms": []},
-                     {"definition": "The sides of a tree's canopy.", "synonyms": [], "antonyms": []},
-                     {"definition": "The cap of a cannon; a piece of lead laid over the vent to keep the priming dry.",
-                      "synonyms": [], "antonyms": []},
-                     {"definition": "A removable cover for the passengers' feet and legs in an open horse carriage.",
-                      "synonyms": [], "antonyms": []}], "synonyms": [], "antonyms": []}, {"partOfSpeech": "verb",
-                                                                                          "definitions": [{
-                                                                                              "definition": "To cover with, or as if with, an apron.",
-                                                                                              "synonyms": [],
-                                                                                              "antonyms": []}],
-                                                                                          "synonyms": [],
-                                                                                          "antonyms": []}],
-                 "license": {"name": "CC BY-SA 3.0", "url": "https://creativecommons.org/licenses/by-sa/3.0"},
-                 "sourceUrls": ["https://en.wiktionary.org/wiki/apron"]}]
-
 
 def cleanup_data(data, word):
     data = data[0]
@@ -117,7 +89,7 @@ def dump_data(data, filepath: str = './json-data/word_data.json'):
         print(f'execution time was {end - start}s')
 
 
-dump_data(words_dict, 'json-data/hints.json')
+#dump_data(words_dict, 'json-data/hints.json')
 
 # if __name__ == '__main__':
 # loop = asyncio.get_event_loop()
