@@ -6516,7 +6516,28 @@
       "https://en.wiktionary.org/wiki/flans"
     ]
   },
-  "oreos": null,
+  "oreos": {
+    "meanings": [
+      {
+        "partOfSpeech": "noun",
+        "definitions": [
+          {
+            "definition": "a brand of chocolate sandwich cookie with a creamy white filling."
+          }
+        ]
+      }
+    ],
+    "license": {
+      "name": "CC BY-SA 3.0",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0"
+    },
+    "sourceUrls": [
+      "https://en.wiktionary.org/wiki/oreos"
+    ],
+    "audio": {
+      "audio": ""
+    }
+  },
   "heinz": null,
   "bhaji": {
     "meanings": [

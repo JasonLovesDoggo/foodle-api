@@ -22,10 +22,20 @@ words = ['fresh', 'crust', 'serve', 'flesh', 'seedy', 'corny', 'salad', 'spicy',
          'vegan', 'latke', 'munch', 'queso', 'curds', 'roast', 'fries', 'chard', 'mints', 'minty', 'dates', 'clams',
          'prune', 'aspic', 'rujak', 'gummy', 'cakes', 'baozi', 'melty']
 
-words_dict = {i: ['', ''] for i in words}
-# print(words_dict)
 
-word_data = []
+def generate_hint(word):
+    lengh = len(set(word))
+    if lengh == 4:
+        return 'Hint: Double Letters!'
+    elif lengh == 3:
+        return 'Hint: Two Sets Of Double Letters!'
+    else:
+        return ''
+
+
+words_dict = {word: ['', generate_hint(word)] for word in words}
+
+word_data = {}
 failed_words = []
 example_data = [{"word": "apron", "phonetic": "/ˈeɪ.pɹən/", "phonetics": [{"text": "/ˈeɪ.pɹən/", "audio": ""},
                                                                           {"text": "/ˈeɪ.pɹən/",
@@ -37,19 +47,19 @@ example_data = [{"word": "apron", "phonetic": "/ˈeɪ.pɹən/", "phonetics": [{"
                      "definition": "An article of clothing worn over the front of the torso and/or legs for protection from spills; also historically worn by Freemasons and as part of women's fashion.",
                      "synonyms": [], "antonyms": []},
                      {"definition": "The short cassock ordinarily worn by English bishops.", "synonyms": [],
-                         "antonyms": []},
+                      "antonyms": []},
                      {"definition": "A hard surface bordering a structure or area.", "synonyms": [], "antonyms": []},
                      {"definition": "The sides of a tree's canopy.", "synonyms": [], "antonyms": []},
                      {"definition": "The cap of a cannon; a piece of lead laid over the vent to keep the priming dry.",
-                         "synonyms": [], "antonyms": []},
+                      "synonyms": [], "antonyms": []},
                      {"definition": "A removable cover for the passengers' feet and legs in an open horse carriage.",
-                         "synonyms": [], "antonyms": []}], "synonyms": [], "antonyms": []}, {"partOfSpeech": "verb",
-                                                                                             "definitions": [{
-                                                                                                 "definition": "To cover with, or as if with, an apron.",
-                                                                                                 "synonyms": [],
-                                                                                                 "antonyms": []}],
-                                                                                             "synonyms": [],
-                                                                                             "antonyms": []}],
+                      "synonyms": [], "antonyms": []}], "synonyms": [], "antonyms": []}, {"partOfSpeech": "verb",
+                                                                                          "definitions": [{
+                                                                                              "definition": "To cover with, or as if with, an apron.",
+                                                                                              "synonyms": [],
+                                                                                              "antonyms": []}],
+                                                                                          "synonyms": [],
+                                                                                          "antonyms": []}],
                  "license": {"name": "CC BY-SA 3.0", "url": "https://creativecommons.org/licenses/by-sa/3.0"},
                  "sourceUrls": ["https://en.wiktionary.org/wiki/apron"]}]
 
@@ -77,9 +87,8 @@ def cleanup_data(data, word):
         if not meaning['antonyms']:
             meaning.pop('antonyms')
 
-    return_data = ({str(word): data})
     print(f'cleaned up {word}')
-    return return_data
+    return data
 
 
 async def retrieve_word_data(word: str):
@@ -96,18 +105,20 @@ async def retrieve_word_data(word: str):
 async def main():
     for word in words:
         await asyncio.sleep(1)
-        word_data.append(await retrieve_word_data(word))
+        word_data[str(word)] = (await retrieve_word_data(word))
     dump_data(word_data)
     print('failed words', failed_words)
 
 
-def dump_data(data):
-    with open('./json-data/word_data.json', 'w+') as data_file:
+def dump_data(data, filepath: str = './json-data/word_data.json'):
+    with open(filepath, 'w+') as data_file:
         json.dump(data, data_file)
         end = time.perf_counter()
         print(f'execution time was {end - start}s')
 
 
-if __name__ == '__main__':
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(main())
+dump_data(words_dict, 'json-data/hints.json')
+
+# if __name__ == '__main__':
+# loop = asyncio.get_event_loop()
+#    loop.run_until_complete(main())

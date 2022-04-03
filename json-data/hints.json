@@ -1,6 +1,6 @@
 {
   "fresh": [
-    "Not cooked, dried, frozen, or spoiled.\"",
+    "Not cooked, dried, frozen, or spoiled.",
     "Newly produced or obtained; recent."
   ],
   "crust": [
@@ -9,7 +9,7 @@
   ],
   "serve": [
     "",
-    ""
+    "Hint: Double Letters!"
   ],
   "flesh": [
     "",
@@ -17,7 +17,7 @@
   ],
   "seedy": [
     "",
-    ""
+    "Hint: Double Letters!"
   ],
   "corny": [
     "",
@@ -25,7 +25,7 @@
   ],
   "salad": [
     "",
-    ""
+    "Hint: Double Letters!"
   ],
   "spicy": [
     "",
@@ -33,11 +33,11 @@
   ],
   "kebab": [
     "",
-    ""
+    "Hint: Double Letters!"
   ],
   "pulpy": [
     "",
-    ""
+    "Hint: Double Letters!"
   ],
   "vodka": [
     "",
@@ -61,7 +61,7 @@
   ],
   "aroma": [
     "",
-    ""
+    "Hint: Double Letters!"
   ],
   "shake": [
     "",
@@ -69,7 +69,7 @@
   ],
   "spill": [
     "",
-    ""
+    "Hint: Double Letters!"
   ],
   "brine": [
     "",
@@ -77,7 +77,7 @@
   ],
   "sweet": [
     "",
-    ""
+    "Hint: Double Letters!"
   ],
   "mince": [
     "",
@@ -101,7 +101,7 @@
   ],
   "cacao": [
     "",
-    ""
+    "Hint: Two Sets Of Double Letters!"
   ],
   "bland": [
     "",
@@ -117,7 +117,7 @@
   ],
   "patty": [
     "",
-    ""
+    "Hint: Double Letters!"
   ],
   "hunky": [
     "",
@@ -125,7 +125,7 @@
   ],
   "treat": [
     "",
-    ""
+    "Hint: Double Letters!"
   ],
   "fungi": [
     "",
@@ -133,7 +133,7 @@
   ],
   "booze": [
     "",
-    ""
+    "Hint: Double Letters!"
   ],
   "thyme": [
     "",
@@ -145,7 +145,7 @@
   ],
   "soggy": [
     "",
-    ""
+    "Hint: Double Letters!"
   ],
   "enjoy": [
     "",
@@ -173,7 +173,7 @@
   ],
   "apple": [
     "",
-    ""
+    "Hint: Double Letters!"
   ],
   "honey": [
     "",
@@ -189,7 +189,7 @@
   ],
   "onion": [
     "",
-    ""
+    "Hint: Two Sets Of Double Letters!"
   ],
   "juicy": [
     "",
@@ -197,7 +197,7 @@
   ],
   "icing": [
     "",
-    ""
+    "Hint: Double Letters!"
   ],
   "whisk": [
     "",
@@ -205,7 +205,7 @@
   ],
   "sushi": [
     "",
-    ""
+    "Hint: Double Letters!"
   ],
   "candy": [
     "",
@@ -225,7 +225,7 @@
   ],
   "trout": [
     "",
-    ""
+    "Hint: Double Letters!"
   ],
   "filet": [
     "",
@@ -245,11 +245,11 @@
   ],
   "tasty": [
     "",
-    ""
+    "Hint: Double Letters!"
   ],
   "puree": [
     "",
-    ""
+    "Hint: Double Letters!"
   ],
   "diary": [
     "",
@@ -257,7 +257,7 @@
   ],
   "penne": [
     "",
-    ""
+    "Hint: Two Sets Of Double Letters!"
   ],
   "ramen": [
     "",
@@ -277,7 +277,7 @@
   ],
   "pizza": [
     "",
-    ""
+    "Hint: Double Letters!"
   ],
   "plate": [
     "",
@@ -305,11 +305,11 @@
   ],
   "creme": [
     "",
-    ""
+    "Hint: Double Letters!"
   ],
   "grill": [
     "",
-    ""
+    "Hint: Double Letters!"
   ],
   "flour": [
     "",
@@ -317,7 +317,7 @@
   ],
   "beefy": [
     "",
-    ""
+    "Hint: Double Letters!"
   ],
   "scone": [
     "",
@@ -325,7 +325,7 @@
   ],
   "toast": [
     "",
-    ""
+    "Hint: Double Letters!"
   ],
   "saucy": [
     "",
@@ -349,7 +349,7 @@
   ],
   "cocoa": [
     "",
-    ""
+    "Hint: Two Sets Of Double Letters!"
   ],
   "mango": [
     "",
@@ -357,7 +357,7 @@
   ],
   "chili": [
     "",
-    ""
+    "Hint: Double Letters!"
   ],
   "salty": [
     "",
@@ -369,15 +369,15 @@
   ],
   "salsa": [
     "",
-    ""
+    "Hint: Two Sets Of Double Letters!"
   ],
   "spoon": [
     "",
-    ""
+    "Hint: Double Letters!"
   ],
   "crepe": [
     "",
-    ""
+    "Hint: Double Letters!"
   ],
   "water": [
     "",
@@ -397,11 +397,11 @@
   ],
   "pasta": [
     "",
-    ""
+    "Hint: Double Letters!"
   ],
   "taffy": [
     "",
-    ""
+    "Hint: Double Letters!"
   ],
   "basil": [
     "",
@@ -429,7 +429,7 @@
   ],
   "berry": [
     "",
-    ""
+    "Hint: Double Letters!"
   ],
   "fruit": [
     "",
@@ -453,7 +453,7 @@
   ],
   "curry": [
     "",
-    ""
+    "Hint: Double Letters!"
   ],
   "lemon": [
     "",
@@ -461,7 +461,7 @@
   ],
   "latte": [
     "",
-    ""
+    "Hint: Double Letters!"
   ],
   "broth": [
     "",
@@ -469,7 +469,7 @@
   ],
   "guava": [
     "",
-    ""
+    "Hint: Double Letters!"
   ],
   "fudge": [
     "",
@@ -485,7 +485,7 @@
   ],
   "farro": [
     "",
-    ""
+    "Hint: Double Letters!"
   ],
   "saute": [
     "",
@@ -497,7 +497,7 @@
   ],
   "oreos": [
     "",
-    ""
+    "Hint: Double Letters!"
   ],
   "heinz": [
     "",
@@ -509,7 +509,7 @@
   ],
   "torte": [
     "",
-    ""
+    "Hint: Double Letters!"
   ],
   "crisp": [
     "",
@@ -537,7 +537,7 @@
   ],
   "ladle": [
     "",
-    ""
+    "Hint: Double Letters!"
   ],
   "beans": [
     "",
@@ -545,7 +545,7 @@
   ],
   "spuds": [
     "",
-    ""
+    "Hint: Double Letters!"
   ],
   "stove": [
     "",
@@ -565,7 +565,7 @@
   ],
   "seeds": [
     "",
-    ""
+    "Hint: Two Sets Of Double Letters!"
   ],
   "liver": [
     "",
@@ -577,7 +577,7 @@
   ],
   "lassi": [
     "",
-    ""
+    "Hint: Double Letters!"
   ],
   "ranch": [
     "",
@@ -605,15 +605,15 @@
   ],
   "jelly": [
     "",
-    ""
+    "Hint: Double Letters!"
   ],
   "adobo": [
     "",
-    ""
+    "Hint: Double Letters!"
   ],
   "taste": [
     "",
-    ""
+    "Hint: Double Letters!"
   ],
   "pilaf": [
     "",
@@ -685,7 +685,7 @@
   ],
   "gummy": [
     "",
-    ""
+    "Hint: Double Letters!"
   ],
   "cakes": [
     "",

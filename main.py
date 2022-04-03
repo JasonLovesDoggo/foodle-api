@@ -12,8 +12,11 @@ app = Flask(__name__, template_folder='templates')
 app.config["DEBUG"] = True
 # CORS(app)
 
-with open('version.json', 'r') as vj:
+with open('json-data/version.json', 'r') as vj:
     number = json.load(vj)
+
+with open('json-data/word_data.json', 'r') as wd:
+    word_data = json.load(wd)
 
 
 @app.route('/')
@@ -25,6 +28,10 @@ def function_name(error):
     num = randrange(1, 3)
     return render_template('error.html', content=f"https://http.{'cat' if num == 1 else 'dog'}/{error.code}.jpg", error=error)
 
+
+@app.get('/v1/foodle/definition/<word>')
+def definition(word):
+    return jsonify(word_data[word])
 
 @app.get('/v1/foodle/version')
 def version():
