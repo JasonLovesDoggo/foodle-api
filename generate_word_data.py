@@ -56,15 +56,15 @@ example_data = [{"word": "apron", "phonetic": "/ˈeɪ.pɹən/", "phonetics": [{"
 
 def cleanup_data(data, word):
     data = data[0]
-    print(data)
     if 'phonetic' in data.keys():
         data.pop('phonetic')
     data.pop('word')
-    audio = data['phonetics'][0]
-    if 'text' in audio.keys():
-        audio.pop('text')
-    data.pop('phonetics')
-    data['audio'] = audio
+    if data['phonetics']:
+        audio = data['phonetics'][0]
+        if 'text' in audio.keys():
+            audio.pop('text')
+        data.pop('phonetics')
+        data['audio'] = audio
     meanings = data['meanings']
     for meaning in meanings:
         for definition in meaning['definitions']:
@@ -78,6 +78,7 @@ def cleanup_data(data, word):
             meaning.pop('antonyms')
 
     return_data = ({str(word): data})
+    print(f'cleaned up {word}')
     return return_data
 
 
@@ -88,7 +89,7 @@ async def retrieve_word_data(word: str):
             if response.status != 200:
                 failed_words.append(word)
                 return print(f'Word {word} failed with uri {uri}')
-            print(f'definition of {word} retrived')
+            print(f'definition of {word} retrived', end=' ')
             return cleanup_data(await response.json(), word)
 
 
@@ -101,7 +102,7 @@ async def main():
 
 
 def dump_data(data):
-    with open('./json-data/temp.json', 'w+') as data_file:
+    with open('./json-data/word_data.json', 'w+') as data_file:
         json.dump(data, data_file)
         end = time.perf_counter()
         print(f'execution time was {end - start}s')
