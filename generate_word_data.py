@@ -89,7 +89,7 @@ async def retrieve_word_data(word: str):
             if response.status != 200:
                 failed_words.append(word)
                 return print(f'Word {word} failed with uri {uri}')
-            print(f'definition of {word} retrived', end=' ')
+            print(f'definition of {word} retrieved', end=' ')
             return cleanup_data(await response.json(), word)
 
 
