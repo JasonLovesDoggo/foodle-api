@@ -1,3 +1,5 @@
+from os import environ
+
 from werkzeug.exceptions import HTTPException
 from random import randrange
 
@@ -6,18 +8,12 @@ from flask import redirect, jsonify, json, Flask, render_template
 # from apiclient.discovery import build
 # from oauth2client.service_account import ServiceAccountCredentials
 # from flask_cors import CORS
-from utils import CreateWordResponse
+from utils import CreateWordResponse, get_word, number
+
 
 app = Flask(__name__, template_folder='templates')
 app.config["DEBUG"] = True
 # CORS(app)
-
-with open('json-data/version.json', 'r') as vj:
-    number = json.load(vj)
-
-with open('json-data/word_data.json', 'r') as wd:
-    word_data = json.load(wd)
-
 
 @app.route('/')
 def index():
@@ -31,7 +27,7 @@ def function_name(error):
 
 @app.get('/v1/foodle/definition/<word>')
 def definition(word):
-    return jsonify(word_data[word])
+    return get_word(word)
 
 @app.get('/v1/foodle/version')
 def version():
