@@ -6,7 +6,8 @@ import asyncio
 
 start = time.perf_counter()
 
-words = open('json-data/wordlist.json', 'r')
+with open('json-data/wordlist.json', 'r') as wl:
+    words = json.load(wl)
 
 
 #def generate_hint(word):
@@ -77,6 +78,6 @@ def dump_data(data, filepath: str = './json-data/word_data.json'):
 
 #dump_data(words_dict, 'json-data/hints.json')
 
-# if __name__ == '__main__':
-# loop = asyncio.get_event_loop()
+#if __name__ == '__main__':              DONT RUN... NOT A GOOD IDEA unless you want to manually go through word_data.json and fix it
+#    loop = asyncio.get_event_loop()
 #    loop.run_until_complete(main())

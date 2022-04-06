@@ -6426,6 +6426,1456 @@
       "audio": ""
     }
   },
+  "rolls": {
+    "meanings": [
+      {
+        "partOfSpeech": "noun",
+        "definitions": [
+          {
+            "definition": "The act or result of rolling, or state of being rolled.",
+            "example": "Look at the roll of the waves."
+          },
+          {
+            "definition": "A forward or backward roll in gymnastics; going head over heels. A tumble."
+          },
+          {
+            "definition": "Something which rolls."
+          },
+          {
+            "definition": "A swagger or rolling gait."
+          },
+          {
+            "definition": "A heavy, reverberatory sound.",
+            "example": "Hear the roll of cannon."
+          },
+          {
+            "definition": "The uniform beating of a drum with strokes so rapid as scarcely to be distinguished by the ear."
+          },
+          {
+            "definition": "The oscillating movement of a nautical vessel as it rotates from side to side, on its fore-and-aft axis, causing its sides to go up and down, as distinguished from the alternate rise and fall of bow and stern called pitching; or the equivalent in an aircraft."
+          },
+          {
+            "definition": "The measure or extent to which a vessel rotates from side to side, on its fore-and-aft axis."
+          },
+          {
+            "definition": "The rotation angle about the longitudinal axis.",
+            "example": "Calculate the roll of that aircraft."
+          },
+          {
+            "definition": "The act of, or total resulting from, rolling one or more dice.",
+            "example": "Make your roll."
+          },
+          {
+            "definition": "A winning streak of continuing luck, especially at gambling (and especially in the phrase on a roll).",
+            "example": "He is on a roll tonight."
+          },
+          {
+            "definition": "A training match for a fighting dog."
+          },
+          {
+            "definition": "(paddlesport) An instance of the act of righting a canoe or kayak which has capsized, without exiting the watercraft, or being assisted.",
+            "example": "That was a good roll."
+          },
+          {
+            "definition": "(paddlesport) The skill of righting a canoe or kayak which has capsized.",
+            "example": "She has a bombproof roll."
+          }
+        ]
+      },
+      {
+        "partOfSpeech": "verb",
+        "definitions": [
+          {
+            "definition": "To cause to revolve by turning over and over; to move by turning on an axis; to impel forward by causing to turn over and over on a supporting surface.",
+            "example": "To roll a wheel, a ball, or a barrel."
+          },
+          {
+            "definition": "To turn over and over.",
+            "example": "The child will roll on the floor."
+          },
+          {
+            "definition": "To tumble in gymnastics; to do a somersault."
+          },
+          {
+            "definition": "To wrap (something) round on itself; to form into a spherical or cylindrical body by causing to turn over and over.",
+            "example": "To roll a sheet of paper; to roll clay or putty into a ball."
+          },
+          {
+            "definition": "To bind or involve by winding, as in a bandage; to enwrap; often with up.",
+            "example": "To roll up the map for shipping."
+          },
+          {
+            "definition": "To be wound or formed into a cylinder or ball.",
+            "example": "The cloth rolls unevenly; the snow rolls well."
+          },
+          {
+            "definition": "To drive or impel forward with an easy motion, as of rolling.",
+            "example": "This river will roll its waters to the ocean."
+          },
+          {
+            "definition": "To utter copiously, especially with sounding words; to utter with a deep sound; \u2014 often with forth, or out.",
+            "example": "To roll forth someone's praises; to roll out sentences."
+          },
+          {
+            "definition": "To press or level with a roller; to spread or form with a roll, roller, or rollers.",
+            "example": "to roll a field;\u00a0 to roll paste;\u00a0 to roll steel rails."
+          },
+          {
+            "definition": "To spread itself under a roller or rolling-pin.",
+            "example": "The pastry rolls well."
+          },
+          {
+            "definition": "To move, or cause to be moved, upon, or by means of, rollers or small wheels."
+          },
+          {
+            "definition": "To leave or begin a journey.",
+            "example": "I want to get there early; let's roll."
+          },
+          {
+            "definition": "To compete, especially with vigor.",
+            "example": "OK guys, we're only down by two points. Let's roll!"
+          },
+          {
+            "definition": "To beat with rapid, continuous strokes, as a drum; to sound a roll upon."
+          },
+          {
+            "definition": "To apply (one line or surface) to another without slipping; to bring all the parts of (one line or surface) into successive contact with another, in such a manner that at every instant the parts that have been in contact are equal."
+          },
+          {
+            "definition": "To turn over in one's mind; to revolve."
+          },
+          {
+            "definition": "To behave in a certain way; to adopt a general disposition toward a situation.",
+            "example": "I was going to kick his ass, but he wasn't worth getting all worked up over; I don't roll like that."
+          },
+          {
+            "definition": "To throw dice."
+          },
+          {
+            "definition": "To roll dice such that they form a given pattern or total.",
+            "example": "If you roll doubles, you get an extra turn."
+          },
+          {
+            "definition": "To create a new character in a role-playing game, especially by using dice to determine properties.",
+            "example": "I'm gonna go and roll a new shaman tonight."
+          },
+          {
+            "definition": "To generate a random number."
+          },
+          {
+            "definition": "(of a vessel) To rotate on its fore-and-aft axis, causing its sides to go up and down. Compare with pitch."
+          },
+          {
+            "definition": "(in folk songs) To travel by sailing."
+          },
+          {
+            "definition": "To beat up; to attack and cause physical damage to."
+          },
+          {
+            "definition": "To cause to betray secrets or to testify for the prosecution.",
+            "example": "The feds rolled him by giving him a free pass for most of what he'd done."
+          },
+          {
+            "definition": "To betray secrets.",
+            "example": "He rolled on those guys after being in jail two days."
+          },
+          {
+            "definition": "To be under the influence of MDMA (a psychedelic stimulant, also known as ecstasy)."
+          },
+          {
+            "definition": "(of a camera) To (cause to) film.",
+            "example": "It's time to roll the cameras."
+          },
+          {
+            "definition": "To slip past (a defender) with the ball."
+          },
+          {
+            "definition": "To have a rolling aspect.",
+            "example": "the hills rolled on"
+          },
+          {
+            "definition": "To perform a periodical revolution; to move onward as with a revolution.",
+            "example": "The years roll on."
+          },
+          {
+            "definition": "To move, like waves or billows, with alternate swell and depression."
+          },
+          {
+            "definition": "To move and cause an effect on someone"
+          },
+          {
+            "definition": "To make a loud or heavy rumbling noise.",
+            "example": "The thunder rolled and the lightning flashed."
+          },
+          {
+            "definition": "To utter with an alveolar trill.",
+            "example": "Many languages roll their r's."
+          },
+          {
+            "definition": "To enrobe in toilet-paper (as a prank or spectacle).",
+            "example": "The kids rolled the principal's house and yard."
+          },
+          {
+            "definition": "To create a customized version of."
+          },
+          {
+            "definition": "To engage in sparring in the context of jujitsu or other grappling disciplines."
+          }
+        ]
+      },
+      {
+        "partOfSpeech": "noun",
+        "definitions": [
+          {
+            "definition": "That which is rolled up.",
+            "example": "a roll of fat, of wool, paper, cloth, etc."
+          },
+          {
+            "definition": "A document written on a piece of parchment, paper, or other materials which may be rolled up; a scroll."
+          },
+          {
+            "definition": "An official or public document; a register; a record"
+          },
+          {
+            "definition": "A catalogue or list"
+          },
+          {
+            "definition": "A quantity of cloth wound into a cylindrical form.",
+            "example": "a roll of carpeting; a roll of ribbon"
+          },
+          {
+            "definition": "A cylindrical twist of tobacco."
+          },
+          {
+            "definition": "A kind of shortened raised biscuit or bread, often rolled or doubled upon itself; see also bread roll."
+          },
+          {
+            "definition": "Part; office; duty; r\u00f4le."
+          },
+          {
+            "definition": "A measure of parchments, containing five dozen."
+          },
+          {
+            "definition": "(paddlesport) An instance of the act of righting a canoe or kayak which has capsized, without exiting the watercraft, or being assisted.",
+            "example": "That was a good roll."
+          }
+        ]
+      }
+    ],
+    "license": {
+      "name": "CC BY-SA 3.0",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0"
+    },
+    "sourceUrls": [
+      "https://en.wiktionary.org/wiki/roll",
+      "https://en.wiktionary.org/wiki/rolls"
+    ],
+    "audio": {
+      "audio": ""
+    }
+  },
+  "gumbo": {
+    "phonetics": [],
+    "meanings": [
+      {
+        "partOfSpeech": "noun",
+        "definitions": [
+          {
+            "definition": "A soup or stew made with okra."
+          },
+          {
+            "definition": "A fine silty soil that when wet becomes very thick and heavy."
+          }
+        ]
+      },
+      {
+        "partOfSpeech": "noun",
+        "definitions": [
+          {
+            "definition": "The edible immature mucilaginous seed pod (properly, capsule) of the Abelmoschus esculentus."
+          },
+          {
+            "definition": "The flowering mallow plant Abelmoschus esculentus itself, now commonly grown in the tropics and warmer parts of the temperate zones."
+          }
+        ],
+        "synonyms": [
+          "ladies' fingers",
+          "bhindi",
+          "gumbo",
+          "ladyfinger"
+        ]
+      }
+    ],
+    "license": {
+      "name": "CC BY-SA 3.0",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0"
+    },
+    "sourceUrls": [
+      "https://en.wiktionary.org/wiki/gumbo",
+      "https://en.wiktionary.org/wiki/okra"
+    ]
+  },
+  "beets": {
+    "meanings": [
+      {
+        "partOfSpeech": "noun",
+        "definitions": [
+          {
+            "definition": "Beta vulgaris, a plant with a swollen root which is eaten or used to make sugar.",
+            "example": "The beet is a hardy species."
+          },
+          {
+            "definition": "A beetroot, a swollen root of such a plant."
+          }
+        ]
+      }
+    ],
+    "license": {
+      "name": "CC BY-SA 3.0",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0"
+    },
+    "sourceUrls": [
+      "https://en.wiktionary.org/wiki/beet",
+      "https://en.wiktionary.org/wiki/beets"
+    ],
+    "audio": {
+      "audio": ""
+    }
+  },
+  "maple": {
+    "meanings": [
+      {
+        "partOfSpeech": "noun",
+        "definitions": [
+          {
+            "definition": "A tree of the Acer genus, characterised by its usually palmate leaves and winged seeds."
+          },
+          {
+            "definition": "The wood of such a tree, prized for its hardness and attractive appearance"
+          }
+        ]
+      }
+    ],
+    "license": {
+      "name": "CC BY-SA 3.0",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0"
+    },
+    "sourceUrls": [
+      "https://en.wiktionary.org/wiki/maple"
+    ],
+    "audio": {
+      "audio": "https://api.dictionaryapi.dev/media/pronunciations/en/maple-us.mp3",
+      "sourceUrl": "https://commons.wikimedia.org/w/index.php?curid=1780206",
+      "license": {
+        "name": "BY-SA 3.0",
+        "url": "https://creativecommons.org/licenses/by-sa/3.0"
+      }
+    }
+  },
+  "dulce": null,
+  "satay": {
+    "meanings": [
+      {
+        "partOfSpeech": "noun",
+        "definitions": [
+          {
+            "definition": "A dish made from small pieces of meat or fish grilled on a skewer and served with a spicy peanut sauce, originating from Indonesia and Malaysia."
+          }
+        ]
+      }
+    ],
+    "license": {
+      "name": "CC BY-SA 3.0",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0"
+    },
+    "sourceUrls": [
+      "https://en.wiktionary.org/wiki/satay"
+    ],
+    "audio": {
+      "audio": "https://api.dictionaryapi.dev/media/pronunciations/en/satay-au.mp3",
+      "sourceUrl": "https://commons.wikimedia.org/w/index.php?curid=75857646",
+      "license": {
+        "name": "BY-SA 4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0"
+      }
+    }
+  },
+  "nacho": {
+    "meanings": [
+      {
+        "partOfSpeech": "noun",
+        "definitions": [
+          {
+            "definition": "A single tortilla chip from a dish of nachos."
+          }
+        ]
+      }
+    ],
+    "license": {
+      "name": "CC BY-SA 3.0",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0"
+    },
+    "sourceUrls": [
+      "https://en.wiktionary.org/wiki/nacho"
+    ],
+    "audio": {
+      "audio": "https://api.dictionaryapi.dev/media/pronunciations/en/nacho-uk.mp3",
+      "sourceUrl": "https://commons.wikimedia.org/w/index.php?curid=89007877",
+      "license": {
+        "name": "BY-SA 4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0"
+      }
+    }
+  },
+  "knife": {
+    "meanings": [
+      {
+        "partOfSpeech": "noun",
+        "definitions": [
+          {
+            "definition": "A utensil or a tool designed for cutting, consisting of a flat piece of hard material, usually steel or other metal (the blade), usually sharpened on one edge, attached to a handle. The blade may be pointed for piercing."
+          },
+          {
+            "definition": "A weapon designed with the aforementioned specifications intended for slashing and/or stabbing and too short to be called a sword. A dagger."
+          },
+          {
+            "definition": "Any blade-like part in a tool or a machine designed for cutting, such as that of a chipper."
+          }
+        ]
+      },
+      {
+        "partOfSpeech": "verb",
+        "definitions": [
+          {
+            "definition": "To cut with a knife."
+          },
+          {
+            "definition": "To use a knife to injure or kill by stabbing, slashing, or otherwise using the sharp edge of the knife as a weapon."
+          },
+          {
+            "definition": "To cut through as if with a knife."
+          },
+          {
+            "definition": "To betray, especially in the context of a political slate."
+          },
+          {
+            "definition": "To positively ignore, especially in order to denigrate. compare cut"
+          }
+        ]
+      }
+    ],
+    "license": {
+      "name": "CC BY-SA 3.0",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0"
+    },
+    "sourceUrls": [
+      "https://en.wiktionary.org/wiki/knife"
+    ],
+    "audio": {
+      "audio": "https://api.dictionaryapi.dev/media/pronunciations/en/knife-uk.mp3",
+      "sourceUrl": "https://commons.wikimedia.org/w/index.php?curid=9014196",
+      "license": {
+        "name": "BY 3.0 US",
+        "url": "https://creativecommons.org/licenses/by/3.0/us"
+      }
+    }
+  },
+  "grits": {
+    "meanings": [
+      {
+        "partOfSpeech": "noun",
+        "definitions": [
+          {
+            "definition": "(usually in the plural) Husked but unground oats."
+          },
+          {
+            "definition": "(usually in the plural) Coarsely ground corn or hominy used as porridge."
+          }
+        ]
+      }
+    ],
+    "license": {
+      "name": "CC BY-SA 3.0",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0"
+    },
+    "sourceUrls": [
+      "https://en.wiktionary.org/wiki/grit",
+      "https://en.wiktionary.org/wiki/grits"
+    ],
+    "audio": {
+      "audio": ""
+    }
+  },
+  "nutty": {
+    "meanings": [
+      {
+        "partOfSpeech": "adjective",
+        "definitions": [
+          {
+            "definition": "Containing nuts.",
+            "example": "This is a nutty chocolate bar."
+          },
+          {
+            "definition": "Resembling or characteristic of nuts."
+          },
+          {
+            "definition": "Barmy, crazy, mad.",
+            "example": "Your wife is as nutty as a fruitcake."
+          },
+          {
+            "definition": "Extravagantly fashionable"
+          }
+        ],
+        "synonyms": [
+          "nuts",
+          "squirrelly"
+        ]
+      }
+    ],
+    "license": {
+      "name": "CC BY-SA 3.0",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0"
+    },
+    "sourceUrls": [
+      "https://en.wiktionary.org/wiki/nutty"
+    ],
+    "audio": {
+      "audio": ""
+    }
+  },
+  "crumb": {
+    "meanings": [
+      {
+        "partOfSpeech": "noun",
+        "definitions": [
+          {
+            "definition": "A small piece which breaks off from baked food (such as cake, biscuit or bread).",
+            "example": "The pigeons were happily pecking at crumbs of bread on the ground."
+          },
+          {
+            "definition": "A small piece of other material, such as rubber."
+          },
+          {
+            "definition": "A bit, small amount.",
+            "example": "a crumb of comfort"
+          },
+          {
+            "definition": "The soft internal portion of bread, surrounded by crust."
+          },
+          {
+            "definition": "A mixture of sugar, cocoa and milk, used to make industrial chocolate."
+          },
+          {
+            "definition": "A nobody; a worthless person."
+          },
+          {
+            "definition": "A body louse (Pediculus humanus)."
+          }
+        ],
+        "synonyms": [
+          "crumbling"
+        ]
+      },
+      {
+        "partOfSpeech": "verb",
+        "definitions": [
+          {
+            "definition": "To cover with crumbs."
+          },
+          {
+            "definition": "To break into crumbs or small pieces with the fingers; to crumble.",
+            "example": "to crumb bread"
+          }
+        ]
+      }
+    ],
+    "license": {
+      "name": "CC BY-SA 3.0",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0"
+    },
+    "sourceUrls": [
+      "https://en.wiktionary.org/wiki/crumb"
+    ],
+    "audio": {
+      "audio": "https://api.dictionaryapi.dev/media/pronunciations/en/crumb-us.mp3",
+      "sourceUrl": "https://commons.wikimedia.org/w/index.php?curid=1769362",
+      "license": {
+        "name": "BY-SA 3.0",
+        "url": "https://creativecommons.org/licenses/by-sa/3.0"
+      }
+    }
+  },
+  "tacos": {
+    "phonetics": [],
+    "meanings": [
+      {
+        "partOfSpeech": "noun",
+        "definitions": [
+          {
+            "definition": "A Mexican snack food; a small tortilla (soft or hard shelled), with typically some type of meat, rice, beans, cheese, diced vegetables (usually tomatoes and lettuce, as served in the United States, and cilantro, onion, and avocado, as served in M\u00e9xico) and salsa."
+          },
+          {
+            "definition": "The vulva.",
+            "synonyms": [
+              "pink taco"
+            ]
+          },
+          {
+            "definition": "A yellow stain on a shirt armpit caused by sweat or deodorant."
+          }
+        ],
+        "synonyms": [
+          "pink taco"
+        ]
+      },
+      {
+        "partOfSpeech": "verb",
+        "definitions": [
+          {
+            "definition": "To fold or cause to buckle in half, similar to the way a taco is folded."
+          }
+        ]
+      }
+    ],
+    "license": {
+      "name": "CC BY-SA 3.0",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0"
+    },
+    "sourceUrls": [
+      "https://en.wiktionary.org/wiki/taco",
+      "https://en.wiktionary.org/wiki/tacos"
+    ]
+  },
+  "dashi": null,
+  "jello": {
+    "meanings": [
+      {
+        "partOfSpeech": "noun",
+        "definitions": [
+          {
+            "definition": "A dessert made by boiling flavoured gelatin in water"
+          }
+        ],
+        "synonyms": [
+          "jelly"
+        ]
+      }
+    ],
+    "license": {
+      "name": "CC BY-SA 3.0",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0"
+    },
+    "sourceUrls": [
+      "https://en.wiktionary.org/wiki/jello"
+    ],
+    "audio": {
+      "audio": ""
+    }
+  },
+  "mirin": {
+    "phonetics": [],
+    "meanings": [
+      {
+        "partOfSpeech": "noun",
+        "definitions": [
+          {
+            "definition": "A form of Japanese rice wine, less alcoholic than sake."
+          }
+        ]
+      }
+    ],
+    "license": {
+      "name": "CC BY-SA 3.0",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0"
+    },
+    "sourceUrls": [
+      "https://en.wiktionary.org/wiki/mirin"
+    ]
+  },
+  "wings": {
+    "meanings": [
+      {
+        "partOfSpeech": "noun",
+        "definitions": [
+          {
+            "definition": "An appendage of an animal's (bird, bat, insect) body that enables it to fly; a similar fin at the side of a ray or similar fish"
+          },
+          {
+            "definition": "Human arm."
+          },
+          {
+            "definition": "Part of an aircraft that produces the lift for rising into the air."
+          },
+          {
+            "definition": "One of the large pectoral fins of a flying fish."
+          },
+          {
+            "definition": "One of the broad, thin, anterior lobes of the foot of a pteropod, used as an organ in swimming."
+          },
+          {
+            "definition": "Any membranaceous expansion, such as that along the sides of certain stems, or of a fruit of the kind called samara."
+          },
+          {
+            "definition": "Either of the two side petals of a papilionaceous flower."
+          },
+          {
+            "definition": "A side shoot of a tree or plant; a branch growing up by the side of another."
+          },
+          {
+            "definition": "Passage by flying; flight.",
+            "example": "to take wing"
+          },
+          {
+            "definition": "Motive or instrument of flight; means of flight or of rapid motion."
+          },
+          {
+            "definition": "A part of something that is lesser in size than the main body, such as an extension from the main building.",
+            "example": "the west wing of the hospital"
+          },
+          {
+            "definition": "Anything that agitates the air as a wing does, or is put in winglike motion by the action of the air, such as a fan or vane for winnowing grain, the vane or sail of a windmill, etc."
+          },
+          {
+            "definition": "A protruding piece of material on a tampon to hold it in place and prevent leakage."
+          },
+          {
+            "definition": "An ornament worn on the shoulder; a small epaulet or shoulder knot."
+          },
+          {
+            "definition": "A cosmetic effect where eyeliner curves outward and ends at a point."
+          },
+          {
+            "definition": "A fraction of a political movement. Usually implies a position apart from the mainstream center position."
+          },
+          {
+            "definition": "An organizational grouping in a military aviation service:"
+          },
+          {
+            "definition": "A panel of a car which encloses the wheel area, especially the front wheels."
+          },
+          {
+            "definition": "A platform on either side of the bridge of a vessel, normally found in pairs."
+          },
+          {
+            "definition": "That part of the hold or orlop of a vessel which is nearest the sides. In a fleet, one of the extremities when the ships are drawn up in line, or when forming the two sides of a triangle."
+          },
+          {
+            "definition": "A position in several field games on either side of the field."
+          },
+          {
+            "definition": "A player occupying such a position, also called a winger"
+          },
+          {
+            "definition": "A h\u00e1\u010dek."
+          },
+          {
+            "definition": "One of the unseen areas on the side of the stage in a theatre."
+          },
+          {
+            "definition": "(in the plural) The insignia of a qualified pilot or aircrew member."
+          },
+          {
+            "definition": "A portable shelter consisting of a fabric roof on a frame, like a tent without sides."
+          },
+          {
+            "definition": "On the Enneagram, one of the two adjacent types to an enneatype that forms an individual's subtype of his or her enneatype",
+            "example": "Tom's a 4 on the Enneagram, with a 3 wing."
+          }
+        ],
+        "synonyms": [
+          "delta",
+          "garrison",
+          "fender",
+          "guard",
+          "forward"
+        ]
+      },
+      {
+        "partOfSpeech": "verb",
+        "definitions": [
+          {
+            "definition": "To injure slightly (as with a gunshot), especially in the wing or arm."
+          },
+          {
+            "definition": "To fly."
+          },
+          {
+            "definition": "(of a building) To add a wing (extra part) to."
+          },
+          {
+            "definition": "To act or speak extemporaneously; to improvise; to wing it."
+          },
+          {
+            "definition": "To throw."
+          },
+          {
+            "definition": "To furnish with wings."
+          },
+          {
+            "definition": "To transport with, or as if with, wings; to bear in flight, or speedily."
+          },
+          {
+            "definition": "To traverse by flying."
+          }
+        ]
+      },
+      {
+        "partOfSpeech": "noun",
+        "definitions": [
+          {
+            "definition": "A type of scuba harness with an attached buoyancy compensation device: see wikipedia:Backplate and wing"
+          },
+          {
+            "definition": "A flip (hairstyle)"
+          }
+        ]
+      }
+    ],
+    "license": {
+      "name": "CC BY-SA 3.0",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0"
+    },
+    "sourceUrls": [
+      "https://en.wiktionary.org/wiki/wing",
+      "https://en.wiktionary.org/wiki/wings"
+    ],
+    "audio": {
+      "audio": "https://api.dictionaryapi.dev/media/pronunciations/en/wings-us.mp3",
+      "sourceUrl": "https://commons.wikimedia.org/w/index.php?curid=1676905",
+      "license": {
+        "name": "BY-SA 3.0",
+        "url": "https://creativecommons.org/licenses/by-sa/3.0"
+      }
+    }
+  },
+  "chive": {
+    "meanings": [
+      {
+        "partOfSpeech": "noun",
+        "definitions": [
+          {
+            "definition": "A perennial plant, Allium schoenoprasum, related to the onion."
+          },
+          {
+            "definition": "(in the plural) The leaves of this plant used as a herb."
+          },
+          {
+            "definition": "The style and stigma of a flower, especially saffron."
+          }
+        ]
+      }
+    ],
+    "license": {
+      "name": "CC BY-SA 3.0",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0"
+    },
+    "sourceUrls": [
+      "https://en.wiktionary.org/wiki/chive"
+    ],
+    "audio": {
+      "audio": "https://api.dictionaryapi.dev/media/pronunciations/en/chive-1-us.mp3",
+      "sourceUrl": "https://commons.wikimedia.org/w/index.php?curid=1779974",
+      "license": {
+        "name": "BY-SA 3.0",
+        "url": "https://creativecommons.org/licenses/by-sa/3.0"
+      }
+    }
+  },
+  "dried": {
+    "meanings": [
+      {
+        "partOfSpeech": "adjective",
+        "definitions": [
+          {
+            "definition": "Without water or moisture, said of something that has previously been wet or moist; resulting from the process of drying."
+          },
+          {
+            "definition": "Usually of foods: cured, preserved by drying.",
+            "example": "dried fish; dried fruit"
+          },
+          {
+            "definition": "Sold raw and unprocessed.",
+            "example": "dried lentils"
+          }
+        ],
+        "synonyms": [
+          "anhydrous",
+          "desiccated",
+          "dehydrated"
+        ],
+        "antonyms": [
+          "canned",
+          "tinned"
+        ]
+      },
+      {
+        "partOfSpeech": "verb",
+        "definitions": [
+          {
+            "definition": "To lose moisture.",
+            "example": "The clothes dried on the line."
+          },
+          {
+            "definition": "To remove moisture from.",
+            "example": "Devin dried her eyes with a handkerchief."
+          },
+          {
+            "definition": "To be thirsty."
+          },
+          {
+            "definition": "To exhaust; to cause to run dry."
+          },
+          {
+            "definition": "For an actor to forget his or her lines while performing."
+          }
+        ]
+      }
+    ],
+    "license": {
+      "name": "CC BY-SA 3.0",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0"
+    },
+    "sourceUrls": [
+      "https://en.wiktionary.org/wiki/dried",
+      "https://en.wiktionary.org/wiki/dry"
+    ],
+    "audio": {
+      "audio": "https://api.dictionaryapi.dev/media/pronunciations/en/dried-us.mp3",
+      "sourceUrl": "https://commons.wikimedia.org/w/index.php?curid=2100956",
+      "license": {
+        "name": "BY-SA 3.0",
+        "url": "https://creativecommons.org/licenses/by-sa/3.0"
+      }
+    }
+  },
+  "tapas": {
+    "meanings": [
+      {
+        "partOfSpeech": "noun",
+        "definitions": [
+          {
+            "definition": "A variety of Spanish small food items or snacks, originally served with sherry."
+          },
+          {
+            "definition": "(by extension) Small food items generally."
+          }
+        ],
+        "synonyms": [
+          "small plate",
+          "small plates"
+        ]
+      }
+    ],
+    "license": {
+      "name": "CC BY-SA 3.0",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0"
+    },
+    "sourceUrls": [
+      "https://en.wiktionary.org/wiki/tapas"
+    ],
+    "audio": {
+      "audio": "https://api.dictionaryapi.dev/media/pronunciations/en/tapas-uk.mp3",
+      "sourceUrl": "https://commons.wikimedia.org/w/index.php?curid=80067093",
+      "license": {
+        "name": "BY-SA 4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0"
+      }
+    }
+  },
+  "beers": {
+    "meanings": [
+      {
+        "partOfSpeech": "noun",
+        "definitions": [
+          {
+            "definition": "An alcoholic drink fermented from starch material, commonly barley malt, often with hops or some other substance to impart a bitter flavor.",
+            "example": "Beer is brewed all over the world."
+          },
+          {
+            "definition": "A fermented extract of the roots and other parts of various plants, as spruce, ginger, sassafras, etc."
+          },
+          {
+            "definition": "A solution produced by steeping plant materials in water or another fluid."
+          },
+          {
+            "definition": "A glass, bottle, or can of any of the above beverages.",
+            "example": "Can I buy you a beer?"
+          },
+          {
+            "definition": "A variety of the above beverages.",
+            "example": "I haven't tried this beer before."
+          }
+        ]
+      },
+      {
+        "partOfSpeech": "noun",
+        "definitions": [
+          {
+            "definition": "One who is or exists."
+          }
+        ]
+      }
+    ],
+    "license": {
+      "name": "CC BY-SA 3.0",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0"
+    },
+    "sourceUrls": [
+      "https://en.wiktionary.org/wiki/beer",
+      "https://en.wiktionary.org/wiki/beers"
+    ],
+    "audio": {
+      "audio": ""
+    }
+  },
+  "chewy": {
+    "meanings": [
+      {
+        "partOfSpeech": "noun",
+        "definitions": [
+          {
+            "definition": "Chewing gum."
+          }
+        ]
+      },
+      {
+        "partOfSpeech": "adjective",
+        "definitions": [
+          {
+            "definition": "Having a pliable or springy texture when chewed.",
+            "example": "I must have spent an hour gnawing on the chewy taffy."
+          }
+        ]
+      }
+    ],
+    "license": {
+      "name": "CC BY-SA 3.0",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0"
+    },
+    "sourceUrls": [
+      "https://en.wiktionary.org/wiki/chewie",
+      "https://en.wiktionary.org/wiki/chewy"
+    ],
+    "audio": {
+      "audio": "https://api.dictionaryapi.dev/media/pronunciations/en/chewy-us.mp3",
+      "sourceUrl": "https://commons.wikimedia.org/w/index.php?curid=181079",
+      "license": {
+        "name": "BY-SA 3.0",
+        "url": "https://creativecommons.org/licenses/by-sa/3.0"
+      }
+    }
+  },
+  "rinds": {
+    "meanings": [
+      {
+        "partOfSpeech": "noun",
+        "definitions": [
+          {
+            "definition": "Tree bark"
+          },
+          {
+            "definition": "A hard, tough outer layer, particularly on food such as fruit, cheese, etc"
+          },
+          {
+            "definition": "(usually \"the\") The gall, the crust, the insolence; often as \"the immortal rind\""
+          }
+        ]
+      },
+      {
+        "partOfSpeech": "verb",
+        "definitions": [
+          {
+            "definition": "To remove the rind from."
+          }
+        ]
+      },
+      {
+        "partOfSpeech": "noun",
+        "definitions": [
+          {
+            "definition": "An iron support fitting used on the upper millstone of a grist mill."
+          }
+        ]
+      }
+    ],
+    "license": {
+      "name": "CC BY-SA 3.0",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0"
+    },
+    "sourceUrls": [
+      "https://en.wiktionary.org/wiki/rind",
+      "https://en.wiktionary.org/wiki/rinds"
+    ],
+    "audio": {
+      "audio": ""
+    }
+  },
+  "yummy": {
+    "meanings": [
+      {
+        "partOfSpeech": "adjective",
+        "definitions": [
+          {
+            "definition": "(lighthearted) Delicious.",
+            "antonyms": [
+              "yucky"
+            ]
+          }
+        ],
+        "antonyms": [
+          "yucky"
+        ]
+      },
+      {
+        "partOfSpeech": "noun",
+        "definitions": [
+          {
+            "definition": "A mother who is sexually attractive.",
+            "synonyms": [
+              "MILF",
+              "yummy"
+            ]
+          }
+        ],
+        "synonyms": [
+          "MILF",
+          "yummy"
+        ]
+      }
+    ],
+    "license": {
+      "name": "CC BY-SA 3.0",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0"
+    },
+    "sourceUrls": [
+      "https://en.wiktionary.org/wiki/yummy",
+      "https://en.wiktionary.org/wiki/yummy%20mummy"
+    ],
+    "audio": {
+      "audio": "https://api.dictionaryapi.dev/media/pronunciations/en/yummy-us.mp3",
+      "sourceUrl": "https://commons.wikimedia.org/w/index.php?curid=1769806",
+      "license": {
+        "name": "BY-SA 3.0",
+        "url": "https://creativecommons.org/licenses/by-sa/3.0"
+      }
+    }
+  },
+  "stock": {
+    "meanings": [
+      {
+        "partOfSpeech": "noun",
+        "definitions": [
+          {
+            "definition": "A store or supply."
+          },
+          {
+            "definition": "The capital raised by a company through the issue of shares. The total of shares held by an individual shareholder."
+          },
+          {
+            "definition": "The raw material from which things are made; feedstock."
+          },
+          {
+            "definition": "Stock theater, summer stock theater."
+          },
+          {
+            "definition": "The trunk and woody main stems of a tree. The base from which something grows or branches."
+          },
+          {
+            "definition": "Any of the several species of cruciferous flowers in the genus Matthiola."
+          },
+          {
+            "definition": "A handle or stem to which the working part of an implement or weapon is attached."
+          },
+          {
+            "definition": "Part of a machine that supports items or holds them in place."
+          },
+          {
+            "definition": "A bar, stick or rod."
+          },
+          {
+            "definition": "A type of (now formal or official) neckwear."
+          },
+          {
+            "definition": "A bed for infants; a crib, cot, or cradle"
+          },
+          {
+            "definition": "A piece of wood magically made to be just like a real baby and substituted for it by magical beings."
+          },
+          {
+            "definition": "A cover for the legs; a stocking."
+          },
+          {
+            "definition": "A block of wood; something fixed and solid; a pillar; a firm support; a post."
+          },
+          {
+            "definition": "(by extension) A person who is as dull and lifeless as a stock or post; one who has little sense."
+          },
+          {
+            "definition": "The longest part of a split tally stick formerly struck in the exchequer, which was delivered to the person who had lent the king money on account, as the evidence of indebtedness."
+          },
+          {
+            "definition": "(in the plural) The frame or timbers on which a ship rests during construction."
+          },
+          {
+            "definition": "(in the plural) Red and grey bricks, used for the exterior of walls and the front of buildings."
+          },
+          {
+            "definition": "In tectology, an aggregate or colony of individuals, such as as trees, chains of salpae, etc."
+          },
+          {
+            "definition": "The beater of a fulling mill."
+          }
+        ],
+        "synonyms": [
+          "rudder stock",
+          "livestock",
+          "card stock",
+          "rootstock",
+          "understock",
+          "rolling stock",
+          "feedstock",
+          "stock-tie"
+        ]
+      },
+      {
+        "partOfSpeech": "verb",
+        "definitions": [
+          {
+            "definition": "To have on hand for sale.",
+            "example": "The store stocks all kinds of dried vegetables."
+          },
+          {
+            "definition": "To provide with material requisites; to store; to fill; to supply.",
+            "example": "to stock a farm, i.e. to supply it with cattle and tools"
+          },
+          {
+            "definition": "To allow (cows) to retain milk for twenty-four hours or more prior to sale."
+          },
+          {
+            "definition": "To put in the stocks as punishment."
+          },
+          {
+            "definition": "To fit (an anchor) with a stock, or to fasten the stock firmly in place."
+          },
+          {
+            "definition": "To arrange cards in a certain manner for cheating purposes; to stack the deck."
+          }
+        ]
+      },
+      {
+        "partOfSpeech": "adjective",
+        "definitions": [
+          {
+            "definition": "Of a type normally available for purchase/in stock.",
+            "example": "stock items"
+          },
+          {
+            "definition": "(racing, of a race car) Having the same configuration as cars sold to the non-racing public, or having been modified from such a car."
+          },
+          {
+            "definition": "Straightforward, ordinary, just another, very basic.",
+            "example": "He gave me a stock answer"
+          }
+        ]
+      }
+    ],
+    "license": {
+      "name": "CC BY-SA 3.0",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0"
+    },
+    "sourceUrls": [
+      "https://en.wiktionary.org/wiki/stock"
+    ],
+    "audio": {
+      "audio": ""
+    }
+  },
+  "tater": {
+    "meanings": [
+      {
+        "partOfSpeech": "noun",
+        "definitions": [
+          {
+            "definition": "A potato.",
+            "example": "We ate them taters up real good."
+          },
+          {
+            "definition": "A home run"
+          }
+        ]
+      }
+    ],
+    "license": {
+      "name": "CC BY-SA 3.0",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0"
+    },
+    "sourceUrls": [
+      "https://en.wiktionary.org/wiki/tater"
+    ],
+    "audio": {
+      "audio": ""
+    }
+  },
+  "slice": {
+    "meanings": [
+      {
+        "partOfSpeech": "noun",
+        "definitions": [
+          {
+            "definition": "That which is thin and broad."
+          },
+          {
+            "definition": "A thin, broad piece cut off.",
+            "example": "Jim was munching on a slice of toast."
+          },
+          {
+            "definition": "An amount of anything."
+          },
+          {
+            "definition": "A piece of pizza."
+          },
+          {
+            "definition": "A snack consisting of pastry with savoury filling.",
+            "example": "I bought a ham and cheese slice at the service station."
+          },
+          {
+            "definition": "A broad, thin piece of plaster."
+          },
+          {
+            "definition": "A knife with a thin, broad blade for taking up or serving fish; also, a spatula for spreading anything, as paint or ink."
+          },
+          {
+            "definition": "A salver, platter, or tray."
+          },
+          {
+            "definition": "A plate of iron with a handle, forming a kind of chisel, or a spadelike implement, variously proportioned, and used for various purposes, as for stripping the planking from a vessel's side, for cutting blubber from a whale, or for stirring a fire of coals; a slice bar; a peel; a fire shovel."
+          },
+          {
+            "definition": "One of the wedges by which the cradle and the ship are lifted clear of the building blocks to prepare for launching."
+          },
+          {
+            "definition": "A removable sliding bottom to a galley."
+          },
+          {
+            "definition": "A shot that (for the right-handed player) curves unintentionally to the right. See fade, hook, draw"
+          },
+          {
+            "definition": "Any of a class of heavy cakes or desserts made in a tray and cut out into squarish slices."
+          },
+          {
+            "definition": "A section of image taken of an internal organ using MRI (magnetic resonance imaging), CT (computed tomography), or various forms of x-ray."
+          },
+          {
+            "definition": "A hawk's or falcon's dropping which squirts at an angle other than vertical. (See mute.)"
+          },
+          {
+            "definition": "A contiguous portion of an array."
+          }
+        ]
+      },
+      {
+        "partOfSpeech": "verb",
+        "definitions": [
+          {
+            "definition": "To cut into slices.",
+            "example": "Slice the cheese thinly."
+          },
+          {
+            "definition": "To cut with an edge utilizing a drawing motion.",
+            "example": "The knife left sliced his arm."
+          },
+          {
+            "definition": "To clear (e.g. a fire, or the grate bars of a furnace) by means of a slice bar."
+          },
+          {
+            "definition": "To hit the shuttlecock with the racket at an angle, causing it to move sideways and downwards."
+          },
+          {
+            "definition": "To hit a shot that slices (travels from left to right for a right-handed player)."
+          },
+          {
+            "definition": "To angle the blade so that it goes too deeply into the water when starting to take a stroke."
+          },
+          {
+            "definition": "To kick the ball so that it goes in an unintended direction, at too great an angle or too high."
+          },
+          {
+            "definition": "To hit the ball with a stroke that causes a spin, resulting in the ball swerving or staying low after a bounce."
+          }
+        ]
+      },
+      {
+        "partOfSpeech": "adjective",
+        "definitions": [
+          {
+            "definition": "Having the properties of a slice knot."
+          }
+        ]
+      }
+    ],
+    "license": {
+      "name": "CC BY-SA 3.0",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0"
+    },
+    "sourceUrls": [
+      "https://en.wiktionary.org/wiki/slice"
+    ],
+    "audio": {
+      "audio": "https://api.dictionaryapi.dev/media/pronunciations/en/slice-au.mp3",
+      "sourceUrl": "https://commons.wikimedia.org/w/index.php?curid=75650008",
+      "license": {
+        "name": "BY-SA 4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0"
+      }
+    }
+  },
+  "morel": {
+    "meanings": [
+      {
+        "partOfSpeech": "noun",
+        "definitions": [
+          {
+            "definition": "Any of several edible mushrooms, especially the common morel or yellow morel."
+          },
+          {
+            "definition": "Any of several fungi in the genus Morchella, the upper part of which is covered with a reticulated and pitted hymenium."
+          }
+        ]
+      }
+    ],
+    "license": {
+      "name": "CC BY-SA 3.0",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0"
+    },
+    "sourceUrls": [
+      "https://en.wiktionary.org/wiki/morel"
+    ],
+    "audio": {
+      "audio": ""
+    }
+  },
+  "tuile": {
+    "meanings": [
+      {
+        "partOfSpeech": "noun",
+        "definitions": [
+          {
+            "definition": "A type of thin, papery cookie, often bent into fancy shapes"
+          }
+        ]
+      }
+    ],
+    "license": {
+      "name": "CC BY-SA 3.0",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0"
+    },
+    "sourceUrls": [
+      "https://en.wiktionary.org/wiki/tuile"
+    ],
+    "audio": {
+      "audio": ""
+    }
+  },
   "farro": {
     "meanings": [
       {
@@ -8236,57 +9686,6 @@
     ],
     "audio": {
       "audio": ""
-    }
-  },
-  "munch": {
-    "meanings": [
-      {
-        "partOfSpeech": "noun",
-        "definitions": [
-          {
-            "definition": "A location or restaurant where good eating can be expected.",
-            "example": "Sally is having a breakfast munch at her place!"
-          },
-          {
-            "definition": "An act of eating.",
-            "example": "We had a good munch at the chippy."
-          },
-          {
-            "definition": "Food."
-          },
-          {
-            "definition": "(BDSM) A casual meeting for those interested in BDSM, usually at a restaurant. See Munch (BDSM)."
-          }
-        ]
-      },
-      {
-        "partOfSpeech": "verb",
-        "definitions": [
-          {
-            "definition": "To chew with a grinding, crunching sound, and with the mouth closed \u2014 often used with on.",
-            "example": "Jim was munching on a biscotti."
-          },
-          {
-            "definition": "To eat vigorously or with excitement.",
-            "example": "Watching old Bill munch his pancakes makes me hungry!"
-          }
-        ]
-      }
-    ],
-    "license": {
-      "name": "CC BY-SA 3.0",
-      "url": "https://creativecommons.org/licenses/by-sa/3.0"
-    },
-    "sourceUrls": [
-      "https://en.wiktionary.org/wiki/munch"
-    ],
-    "audio": {
-      "audio": "https://api.dictionaryapi.dev/media/pronunciations/en/munch-au.mp3",
-      "sourceUrl": "https://commons.wikimedia.org/w/index.php?curid=79241808",
-      "license": {
-        "name": "BY-SA 4.0",
-        "url": "https://creativecommons.org/licenses/by-sa/4.0"
-      }
     }
   },
   "queso": {
