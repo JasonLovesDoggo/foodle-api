@@ -1546,7 +1546,25 @@
       "sourceUrl": "https://commons.wikimedia.org/w/index.php?curid=509978"
     }
   },
-  "zesty": null,
+  "zesty": {
+    "meanings": [
+      {
+        "partOfSpeech": "adjective",
+        "definitions": [
+          {
+            "definition": "having a strong, pleasant, and somewhat spicy flavor"
+          }
+        ]
+      }
+    ],
+    "license": {
+      "name": "CC BY-SA 3.0",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0"
+    },
+    "sourceUrls": [
+      "https://en.wiktionary.org/wiki/zesty"
+    ]
+  },
   "scrap": {
     "meanings": [
       {
@@ -6772,7 +6790,6 @@
       }
     }
   },
-  "dulce": null,
   "satay": {
     "meanings": [
       {
@@ -7046,7 +7063,25 @@
       "https://en.wiktionary.org/wiki/tacos"
     ]
   },
-  "dashi": null,
+  "dashi": {
+    "meanings": [
+      {
+        "partOfSpeech": "noun",
+        "definitions": [
+          {
+            "definition": "stock made from fish and kelp, used in Japanese cooking."
+          }
+        ]
+      }
+    ],
+    "license": {
+      "name": "CC BY-SA 3.0",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0"
+    },
+    "sourceUrls": [
+      "https://en.wiktionary.org/wiki/dashi"
+    ]
+  },
   "jello": {
     "meanings": [
       {
@@ -7983,12 +8018,28 @@
     },
     "sourceUrls": [
       "https://en.wiktionary.org/wiki/oreos"
-    ],
-    "audio": {
-      "audio": ""
-    }
+    ]
   },
-  "heinz": null,
+  "heinz": {
+    "meanings": [
+      {
+        "partOfSpeech": "noun",
+        "definitions": [
+          {
+            "definition": "A popular food manufacture (Please come up with a better definition for this contact me at https://nasoj.me/foodle/#contact)"
+          }
+        ]
+      }
+    ],
+    "license": {
+      "name": "CC BY-SA 3.0",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0"
+    },
+    "sourceUrls": [
+      "https://en.wiktionary.org/wiki/Heinz",
+      "https://en.wikipedia.org/wiki/Heinz"
+    ]
+  },
   "bhaji": {
     "meanings": [
       {
@@ -8951,7 +9002,26 @@
       "audio": ""
     }
   },
-  "namul": null,
+  "namul": {
+    "meanings": [
+      {
+        "partOfSpeech": "noun",
+        "definitions": [
+          {
+            "definition": "In Korean cuisine, any of various seasoned herbal dishes made from grasses, leaves, vegetables, etc."
+          }
+        ]
+      }
+    ],
+    "license": {
+      "name": "CC BY-SA 3.0",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0"
+    },
+    "sourceUrls": [
+      "https://en.wiktionary.org/wiki/namul",
+      "https://en.wikipedia.org/wiki/Namul"
+    ]
+  },
   "lassi": {
     "meanings": [
       {
@@ -9085,7 +9155,25 @@
       "audio": ""
     }
   },
-  "manti": null,
+  "manti": {
+    "meanings": [
+      {
+        "partOfSpeech": "noun",
+        "definitions": [
+          {
+            "definition": "A type of dumpling served in Turkish and Central Asian cuisine"
+          }
+        ]
+      }
+    ],
+    "license": {
+      "name": "CC BY-SA 3.0",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0"
+    },
+    "sourceUrls": [
+      "https://en.wiktionary.org/wiki/manti"
+    ]
+  },
   "straw": {
     "meanings": [
       {
@@ -9621,7 +9709,26 @@
       "https://en.wiktionary.org/wiki/pilaf"
     ]
   },
-  "mochi": null,
+  "mochi": {
+    "meanings": [
+      {
+        "partOfSpeech": "noun",
+        "definitions": [
+          {
+            "definition": "A Japanese rice cake made from glutinous rice."
+          }
+        ]
+      }
+    ],
+    "license": {
+      "name": "CC BY-SA 3.0",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0"
+    },
+    "sourceUrls": [
+      "https://en.wiktionary.org/wiki/mochi",
+      "https://en.wikipedia.org/wiki/Mochi"
+    ]
+  },
   "vegan": {
     "meanings": [
       {
@@ -10013,7 +10120,25 @@
       "audio": ""
     }
   },
-  "minty": null,
+  "minty": {
+    "meanings": [
+      {
+        "partOfSpeech": "adjective",
+        "definitions": [
+          {
+            "definition": "tasting or smelling of mint (= a herb with a strong, fresh flavour)"
+          }
+        ]
+      }
+    ],
+    "license": {
+      "name": "CC BY-SA 3.0",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0"
+    },
+    "sourceUrls": [
+      "https://www.thefreedictionary.com/minty"
+    ]
+  },
   "dates": {
     "meanings": [
       {
@@ -10285,7 +10410,26 @@
       "audio": ""
     }
   },
-  "rujak": null,
+  "rujak": {
+    "meanings": [
+      {
+        "partOfSpeech": "noun",
+        "definitions": [
+          {
+            "definition": "(Cookery) (in Malaysia) a salad dish served in chilli sauce"
+          }
+        ]
+      }
+    ],
+    "license": {
+      "name": "CC BY-SA 3.0",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0"
+    },
+    "sourceUrls": [
+      "https://www.thefreedictionary.com/Rujak",
+      "https://en.wikipedia.org/wiki/Rojak"
+    ]
+  },
   "gummy": {
     "meanings": [
       {

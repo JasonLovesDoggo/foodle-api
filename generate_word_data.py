@@ -58,7 +58,7 @@ async def cleanup_data(data, word, recleandata=True):
                 meaning.pop('antonyms')
 
     await asyncio.sleep(.5)
-    print(f' and cleaned it up')
+    print(f' & cleaned it up')
     return data
 
 
@@ -69,7 +69,7 @@ async def retrieve_word_data(word: str):
             if response.status != 200:
                 if word in missing_words_with_info:
                     print(
-                        f'Word {word} {"But we have the info in word-data.json" if word in missing_words_with_info else ""}',
+                        f'definition of {word} failed to fetch {"But we have the info in word-data.json" if word in missing_words_with_info else ""}',
                         end='')
                     return await cleanup_data(missing_words_data[word], word, recleandata=False)
                 failed_words.append(word)
@@ -87,7 +87,10 @@ async def main():
         word_data[str(word)] = (await retrieve_word_data(word))
 
     dump_data(word_data)
-    print('failed words', failed_words)
+    if failed_words:
+        print('failed words', failed_words)
+    else:
+        print('No Failed Words!!!!')
 
 
 def dump_data(data, filepath: str = './json-data/word_data.json'):
