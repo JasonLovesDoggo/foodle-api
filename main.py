@@ -1,3 +1,6 @@
+from os import environ
+from sys import stdout
+
 from werkzeug.exceptions import HTTPException
 from random import randrange
 
@@ -6,24 +9,39 @@ from flask import redirect, jsonify, json, Flask, render_template
 # from apiclient.discovery import build
 # from oauth2client.service_account import ServiceAccountCredentials
 # from flask_cors import CORS
-from utils import CreateWordResponse
+from utils import CreateWordResponse, get_word, number
+import logging  # will only be using for exceptions
+
+logging.basicConfig(
+    format="%(asctime)s - [%(name)s | %(filename)s:%(lineno)d] - %(levelname)s - %(message)s",
+    filename="api.log",
+    filemode="w+",
+    level=logging.INFO,
+)
+log = logging.getLogger(__name__)
+log.addHandler(logging.StreamHandler(stdout))
 
 app = Flask(__name__, template_folder='templates')
 app.config["DEBUG"] = True
+
+
 # CORS(app)
-
-with open('version.json', 'r') as vj:
-    number = json.load(vj)
-
 
 @app.route('/')
 def index():
     return redirect('https://nasoj.me')
 
+
 @app.errorhandler(HTTPException)
 def function_name(error):
     num = randrange(1, 3)
-    return render_template('error.html', content=f"https://http.{'cat' if num == 1 else 'dog'}/{error.code}.jpg", error=error)
+    return render_template('error.html', content=f"https://http.{'cat' if num == 1 else 'dog'}/{error.code}.jpg",
+                           error=error)
+
+
+@app.get('/v1/foodle/definition/<word>')
+def definition(word):
+    return get_word(word)
 
 
 @app.get('/v1/foodle/version')
