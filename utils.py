@@ -19,6 +19,8 @@ def get_version():
 
 @lru_cache(maxsize=512)
 def get_word(word: str):
+    if len(word) != 5:
+        return CreateErrorResponse('word must be 5 characters long', 400) #400 means bad request
     if word in wordlist:
         return jsonify(word_data[word])
     return CreateErrorResponse('word not in wordlist', 404)
