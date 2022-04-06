@@ -15,8 +15,5 @@
     },
     "sourceUrls": [
       "https://en.wiktionary.org/wiki/TODO"
-    ],
-    "audio": {
-      "audio": ""
-    }
+    ]
   }
