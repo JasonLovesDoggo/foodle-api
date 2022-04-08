@@ -1,10 +1,10 @@
-from os import getenv, linesep
+from os import getenv
 from urllib.parse import quote_plus
 from dotenv import load_dotenv
 import requests
 from datetime import datetime
 
-from utils import *
+from utils import get_daily
 
 hourmap = {0: '12 AM',
            1: '1 AM',
@@ -48,7 +48,7 @@ class StatsWrapper:
         requests.get(API_URL)
 
     def generate_stats(self):
-        daily = self.get_daily()
+        daily = get_daily()
         hourlys = self.get_hourlys()
         hourly_words = ''
         for word in hourlys:
@@ -56,12 +56,13 @@ class StatsWrapper:
 
         self.message = f"""
         Hey Jason! it's {self.date.strftime('%A')}, {self.date.strftime('%Y %B %d')} And here are today's foodle Information
-        Daily word : {daily}
-        Hourly words : {hourly_words}
+Daily word : {daily}
+Hourly words ↓	↓	↓	
+     
+    {hourly_words}
         """
-        print(self.message)  # self.send()
-
-
+        print(self.message)
+        self.send()
 
     def get_hourlys(self) -> list[tuple]:
         # word/ hour

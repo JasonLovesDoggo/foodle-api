@@ -1,1 +1,29 @@
-{"daily":"broil"}
+{
+  "daily": "broil",
+  "hourly": [
+    "brine",
+    "fries",
+    "spoon",
+    "basil",
+    "vodka",
+    "kebab",
+    "salad",
+    "fries",
+    "mango",
+    "heinz",
+    "pesto",
+    "fries",
+    "corny",
+    "tater",
+    "cumin",
+    "ladle",
+    "saute",
+    "burnt",
+    "cumin",
+    "fresh",
+    "mochi",
+    "lassi",
+    "cacao",
+    "smoke"
+  ]
+}

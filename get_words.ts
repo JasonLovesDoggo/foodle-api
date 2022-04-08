@@ -1,12 +1,9 @@
-// @ts-ignore
-import seedrandom from "seedrandom";
-import wordList from "./data/words_5";
+let seedrandom = require('seedrandom');
+var fs = require('fs'); // export the datax
+import wordList from './data/wordlist.json';
+let data = {}
+let daily;
 
-export const words = {
-    ...wordList, contains: (word: string) => {
-        return wordList.words.includes(word) || wordList.valid.includes(word);
-    },
-};
 
 export function newSeed(mode: string) {
     const today = new Date();
@@ -20,27 +17,40 @@ export function newSeed(mode: string) {
 
 
 export const modeData = {
-    default: 'daily', modes: [
+    modes: [
         {
         name: "Daily", unit: 86400000, start: 1642370400000,	// 17/01/2022
-        seed: newSeed('daily'), historical: false, streak: true,
+        seed: newSeed('daily')
     }, {
         name: "Hourly",
         unit: 3600000,
         start: 1642528800000,	// 18/01/2022 8:00pm
-        seed: newSeed('hourly'),
-        historical: false,
-        icon: "m50,7h100v33c0,40 -35,40 -35,60c0,20 35,20 35,60v33h-100v-33c0,-40 35,-40 35,-60c0,-20 -35,-20 -35,-60z",
-        streak: true,
+        seed: newSeed('hourly')
     }]
 };
 
 export function seededRandomInt(min: number, max: number, seed: number) {
     const rng = seedrandom(`${seed}`);
     return Math.floor(min + (max - min) * rng());
+
 }
 
-let daily;
-daily = words.words[seededRandomInt(0, words.words.length, modeData.modes[1].seed)];
-console.log(daily)
-process.env.daily_word = daily;
+daily = wordList[(seededRandomInt(0, wordList.length, modeData.modes[0].seed))];        // change to 1 for hourly
+data['daily'] = daily;
+let hourlys = data['hourly'] = {}
+// @ts-ignore
+let x = Array.from({length: 24}, (x, i) => i);
+const today = new Date();
+for (let time in x) {
+    // @ts-ignore
+    let tempdate = new Date(today.getFullYear(), today.getMonth(), today.getDate(), time).valueOf();
+    hourlys.push(wordList[(seededRandomInt(0, wordList.length, tempdate))])
+}
+
+
+
+fs.writeFile("./data/generated_words.json", JSON.stringify(data), function(err) {
+    if (err) throw err;
+    console.log('complete');
+    }
+);
