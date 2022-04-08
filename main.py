@@ -4,12 +4,12 @@ from sys import stdout
 from werkzeug.exceptions import HTTPException
 from random import randrange
 
-from flask import redirect, jsonify, json, Flask, render_template
+from flask import redirect, Flask, render_template
 
 # from apiclient.discovery import build
 # from oauth2client.service_account import ServiceAccountCredentials
 # from flask_cors import CORS
-from utils import CreateWordResponse, get_word, number
+from utils import *
 import logging  # will only be using for exceptions
 
 logging.basicConfig(
@@ -51,20 +51,19 @@ def version():
 
 @app.get("/v1/foodle/word/daily")
 def search_query_daily():
-    daily_word = 'daily'  # Better Logic
-    return CreateWordResponse(daily_word, 200, 'daily')
+    return CreateWordResponse(get_daily(), 200), 200
 
 
 @app.get("/v1/foodle/word/hourly")
 def search_query_hourly():
     hourly_word = 'hourly'  # Better Logic
-    return CreateWordResponse(hourly_word, 200, 'hourly')
+    return CreateWordResponse(hourly_word, 200), 200
 
 
 @app.get("/v1/foodle/word/infinite")
 def search_query_infinite():
     infinite_word = 'infinite'  # Better Logic
-    return CreateWordResponse(infinite_word, 200, 'infinite')
+    return CreateWordResponse(infinite_word, 200), 200
 
 
 @app.route("/v1/foodle/stats/<mode>/<action>",

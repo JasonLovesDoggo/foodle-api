@@ -2,6 +2,7 @@
 <project version="4">
   <component name="TypeScriptCompiler">
     <option name="recompileOnChanges" value="true" />
-    <option name="typeScriptCompilerParams" value="--outDir built" />
+    <option name="showAllErrors" value="false" />
+    <option name="typeScriptCompilerParams" value="--resolveJsonModule --esModuleInterop" />
   </component>
 </project>

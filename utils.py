@@ -18,6 +18,13 @@ with open('data/wordlist.json', 'r') as wl:
     wordlist = json.load(wl)
     log.info('loaded word list')
 
+with open('data/generated_words.json', 'r') as gw:
+    gen_words = json.load(gw)
+    log.info('loaded Generated words')
+
+@lru_cache(maxsize=1)
+def get_daily():
+    return gen_words['daily']
 
 @lru_cache
 def get_version():
@@ -33,11 +40,10 @@ def get_word(word: str):
     return CreateErrorResponse('word not in wordlist', 404)
 
 
-def CreateWordResponse(word: str, status_code: int, mode: str):
+def CreateWordResponse(word: str, status_code: int):
     return jsonify(
         {
-            'Status': status_code,
-            'mode': mode,
+            'status': status_code,
             'word': word,
         }
     )
@@ -47,7 +53,7 @@ def CreateErrorResponse(error: str, status_code: int):
     log.warning(f'User Error code: {status_code} error {error}')
     return jsonify(
         {
-            'Status': status_code,
+            'status': status_code,
             'error': error,
         }
     )

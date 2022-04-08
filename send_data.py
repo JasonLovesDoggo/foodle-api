@@ -4,6 +4,8 @@ from dotenv import load_dotenv
 import requests
 from datetime import datetime
 
+from utils import *
+
 hourmap = {0: '12 AM',
            1: '1 AM',
            2: '2 AM',
@@ -59,8 +61,7 @@ class StatsWrapper:
         """
         print(self.message)  # self.send()
 
-    def get_daily(self):
-        return 'hello'
+
 
     def get_hourlys(self) -> list[tuple]:
         # word/ hour
