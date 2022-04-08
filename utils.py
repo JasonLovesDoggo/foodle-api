@@ -6,15 +6,15 @@ from flask import jsonify
 
 log = getLogger(__name__)
 
-with open('json-data/version.json', 'r') as vj:
+with open('data/version.json', 'r') as vj:
     number = json.load(vj)
     log.info(f'loaded version num {number}')
 
-with open('json-data/word_data.json', 'r') as wd:
+with open('data/word_data.json', 'r') as wd:
     word_data = json.load(wd)
     log.info('loaded word data')
 
-with open('json-data/wordlist.json', 'r') as wl:
+with open('data/wordlist.json', 'r') as wl:
     wordlist = json.load(wl)
     log.info('loaded word list')
 

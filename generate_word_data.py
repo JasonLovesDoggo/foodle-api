@@ -6,10 +6,10 @@ import asyncio
 
 start = time.perf_counter()
 
-with open('json-data/wordlist.json', 'r') as wl:
+with open('data/wordlist.json', 'r') as wl:
     words = json.load(wl)
 
-with open('json-data/missing-info.json', 'r') as mi:
+with open('data/missing-info.json', 'r') as mi:
     missing_words_data = json.load(mi)
     missing_words_with_info = missing_words_data['wordlist']
 
@@ -93,14 +93,14 @@ async def main():
         print('No Failed Words!!!!')
 
 
-def dump_data(data, filepath: str = './json-data/word_data.json'):
+def dump_data(data, filepath: str = './data/word_data.json'):
     with open(filepath, 'w+') as data_file:
         json.dump(data, data_file)
         end = time.perf_counter()
         print(f'execution time was {round(end - start, 6)}s')
 
 
-# dump_data(words_dict, 'json-data/hints.json')  Don't uncomment this
+# dump_data(words_dict, 'data/hints.json')  Don't uncomment this
 
 if __name__ == '__main__':
     loop = asyncio.get_event_loop()
