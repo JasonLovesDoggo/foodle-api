@@ -1,0 +1,26 @@
+name: Update Gallery
+
+
+on:
+  schedule:
+    # Runs “At 00:00.” every day (see https://crontab.guru)
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  gallary_job:
+    runs-on: ubuntu-latest
+    name: Sends me the foodle info
+
+    steps:
+      - name: Checkout the repo
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8' # install the python version needed
+
+      - name: Run Sender
+        run: python send_data.py
