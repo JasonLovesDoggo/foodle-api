@@ -2,6 +2,7 @@ import json
 from functools import lru_cache
 from logging import getLogger
 
+import flask
 from flask import jsonify
 
 log = getLogger(__name__)
@@ -22,9 +23,11 @@ with open('data/generated_words.json', 'r') as gw:
     gen_words = json.load(gw)
     log.info('loaded Generated words')
 
+
 @lru_cache(maxsize=1)
 def get_daily():
     return gen_words['daily']
+
 
 @lru_cache
 def get_version():
@@ -41,19 +44,15 @@ def get_word(word: str):
 
 
 def CreateWordResponse(word: str, status_code: int):
-    return jsonify(
-        {
-            'status': status_code,
-            'word': word,
-        }
-    )
+    return jsonify({'status': status_code, 'word': word, })
 
 
 def CreateErrorResponse(error: str, status_code: int):
     log.warning(f'User Error code: {status_code} error {error}')
-    return jsonify(
-        {
-            'status': status_code,
-            'error': error,
-        }
-    )
+    return jsonify({'status': status_code, 'error': error, })
+
+def RemoveUriArguments(request: flask.Request, argument):
+    argument_data = str(request.view_args[argument])
+    uri_base = str(request.full_path).split(argument_data)[0]
+    return uri_base
+
