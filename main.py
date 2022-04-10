@@ -20,8 +20,8 @@ log.addHandler(logging.StreamHandler(stdout))
 app = Flask(__name__, template_folder='templates')
 app.config["DEBUG"] = True
 if exists('/.env'):
-    load_dotenv()
-
+            load_dotenv()
+db = Database(environ.get('mongopass'))
 
 @app.route('/')
 def index():
