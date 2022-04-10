@@ -36,6 +36,7 @@ hourmap = {'0': '12 AM',
 with open('data/generated_words.json', 'r') as gw:
     gen_words = json.load(gw)
 
+
 class StatsWrapper:
     def __init__(self):
         if exists('.env'):
@@ -69,15 +70,15 @@ Hourly words ↓	↓	↓
         print(self.message)
         self.send()
 
-    def get_hourlys(self) -> list[tuple]:
+    def get_hourlys(self):  # returns list[tuple] github actions is being annoying
         # word/ hour
         raw_words = gen_words['hourly']
         print(raw_words)
         raw_words_2 = [('grate', 0), ('pizza', 1), ('thyme', 2), ('scone', 3), ('pizza', 4), ('syrup', 5), ('quite', 6),
-                     ('pasta', 7), ('salsa', 8), ('patty', 9), ('morry', 10), ('grill', 11), ('pecan', 12),
-                     ('fresh', 13),
-                     ('vodka', 14), ('kebab', 15), ('tangy', 16), ('sugar', 17), ('aroma', 18), ('shake', 19),
-                     ('brine', 20), ('spill', 21), ('sweet', 22), ('mince', 23)]
+                       ('pasta', 7), ('salsa', 8), ('patty', 9), ('morry', 10), ('grill', 11), ('pecan', 12),
+                       ('fresh', 13),
+                       ('vodka', 14), ('kebab', 15), ('tangy', 16), ('sugar', 17), ('aroma', 18), ('shake', 19),
+                       ('brine', 20), ('spill', 21), ('sweet', 22), ('mince', 23)]
         words = []
         for hour, word in raw_words.items():
             words.append(f'{word} at {self.HourReplacment(hour)}')
