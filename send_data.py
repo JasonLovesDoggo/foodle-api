@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 import requests
 from datetime import datetime
 
-from utils import get_daily
+from utils import get_daily, gen_words
 
 hourmap = {'0': '12 AM',
            '1': '1 AM',
@@ -32,9 +32,6 @@ hourmap = {'0': '12 AM',
            '21': '9 PM',
            '22': '10 PM',
            '23': '11 PM'}
-
-with open('data/generated_words.json', 'r') as gw:
-    gen_words = json.load(gw)
 
 
 class StatsWrapper:
