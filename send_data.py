@@ -41,7 +41,6 @@ class StatsWrapper:
     def __init__(self):
         if exists('.env'):
             load_dotenv()
-        print(environ)
         self.PHONENUM = environ['PHONENUM']
         self.API_KEY = environ['APIKEY']
         self.message = ''
