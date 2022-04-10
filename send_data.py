@@ -43,7 +43,9 @@ class StatsWrapper:
             load_dotenv()
         self.PHONENUM = getenv('phonenum')
         self.API_KEY = getenv('apikey')
-        self.message = 'pee pee poo poo'
+        print(self.PHONENUM)
+        print(self.API_KEY)
+        self.message = ''
         self.date = datetime.today()  # .strftime('%A')
 
     def HourReplacment(self, hour: str):  # im sure there is a builtin for this, but I don't know it
@@ -52,6 +54,7 @@ class StatsWrapper:
     def send(self):
         API_URL = f"https://api.callmebot.com/signal/send.php?phone=+{self.PHONENUM}&apikey={self.API_KEY}&text={quote_plus(self.message)}"
         requests.get(API_URL)
+        print('sent successfully')
 
     def generate_stats(self):
         daily = get_daily()
@@ -73,7 +76,6 @@ Hourly words ↓	↓	↓
     def get_hourlys(self):  # returns list[tuple] github actions is being annoying
         # word/ hour
         raw_words = gen_words['hourly']
-        print(raw_words)
         raw_words_2 = [('grate', 0), ('pizza', 1), ('thyme', 2), ('scone', 3), ('pizza', 4), ('syrup', 5), ('quite', 6),
                        ('pasta', 7), ('salsa', 8), ('patty', 9), ('morry', 10), ('grill', 11), ('pecan', 12),
                        ('fresh', 13),
