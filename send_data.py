@@ -41,8 +41,9 @@ class StatsWrapper:
     def __init__(self):
         if exists('.env'):
             load_dotenv()
-        self.PHONENUM = environ['phonenum']
-        self.API_KEY = environ['apikey']
+        print(environ)
+        self.PHONENUM = environ['PHONENUM']
+        self.API_KEY = environ['APIKEY']
         self.message = ''
         self.date = datetime.today()  # .strftime('%A')
 
