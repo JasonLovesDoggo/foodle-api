@@ -1,5 +1,5 @@
 import json
-from os import getenv
+from os import getenv, environ
 from os.path import exists
 from urllib.parse import quote_plus
 from dotenv import load_dotenv
@@ -41,10 +41,8 @@ class StatsWrapper:
     def __init__(self):
         if exists('.env'):
             load_dotenv()
-        self.PHONENUM = getenv('phonenum')
-        self.API_KEY = getenv('apikey')
-        print(self.PHONENUM)
-        print(self.API_KEY)
+        self.PHONENUM = environ['phonenum']
+        self.API_KEY = environ['apikey']
         self.message = ''
         self.date = datetime.today()  # .strftime('%A')
 
