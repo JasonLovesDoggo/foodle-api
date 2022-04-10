@@ -21,8 +21,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16'
-          cache: 'npm'
-      - run: npm install
+
+      - run: npm install seedrandom
       - run: node get_words.js
 
       - name: commit files
