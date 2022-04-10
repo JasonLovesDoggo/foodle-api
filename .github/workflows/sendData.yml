@@ -22,5 +22,8 @@ jobs:
         with:
           python-version: '3.8' # install the python version needed
 
+      - name: Install requirments
+        run: pip install -r github-reqs.txt
+
       - name: Run Sender
         run: python send_data.py
