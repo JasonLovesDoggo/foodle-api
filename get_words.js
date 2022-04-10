@@ -1,9 +1,12 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+exports.__esModule = true;
 exports.seededRandomInt = exports.modeData = exports.newSeed = void 0;
 var seedrandom = require('seedrandom');
 var fs = require('fs'); // export the datax
-var wordlist_json_1 = require("./data/wordlist.json");
+var wordlist_json_1 = __importDefault(require("./data/wordlist.json"));
 var data = {};
 var daily;
 function newSeed(mode) {
@@ -34,7 +37,7 @@ function seededRandomInt(min, max, seed) {
     return Math.floor(min + (max - min) * rng());
 }
 exports.seededRandomInt = seededRandomInt;
-daily = wordlist_json_1.default[(seededRandomInt(0, wordlist_json_1.default.length, exports.modeData.modes[0].seed))]; // change to 1 for hourly
+daily = wordlist_json_1["default"][(seededRandomInt(0, wordlist_json_1["default"].length, exports.modeData.modes[0].seed))]; // change to 1 for hourly
 data['daily'] = daily;
 var hourlys = data['hourly'] = {};
 // @ts-ignore
@@ -43,7 +46,7 @@ var today = new Date();
 for (var time in x) {
     // @ts-ignore
     var tempdate = new Date(today.getFullYear(), today.getMonth(), today.getDate(), time).valueOf();
-    hourlys.push(wordlist_json_1.default[(seededRandomInt(0, wordlist_json_1.default.length, tempdate))]);
+    hourlys[time.toString()] = wordlist_json_1["default"][(seededRandomInt(0, wordlist_json_1["default"].length, tempdate))];
 }
 fs.writeFile("./data/generated_words.json", JSON.stringify(data), function (err) {
     if (err)

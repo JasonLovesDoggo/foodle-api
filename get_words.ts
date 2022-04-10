@@ -44,7 +44,7 @@ const today = new Date();
 for (let time in x) {
     // @ts-ignore
     let tempdate = new Date(today.getFullYear(), today.getMonth(), today.getDate(), time).valueOf();
-    hourlys.push(wordList[(seededRandomInt(0, wordList.length, tempdate))])
+    hourlys[time.toString()] = wordList[(seededRandomInt(0, wordList.length, tempdate))]
 }
 
 
