@@ -1,0 +1,35 @@
+name: Generate the foodle word data for the day
+
+on:
+  schedule:
+    # Runs “At 00:00.” every day (see https://crontab.guru)
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  words:
+    runs-on: ubuntu-latest
+    name: updates word data for today
+
+    steps:
+      - name: Checkout the repo
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      name: Setup and run node
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'npm'
+      - run: npm install
+      - run: node get_words.js
+
+      - name: commit files
+        run: |
+          git config --global user.name "Jason | Word Updater"
+          git config --global user.email "thebosssg19@gmail.com"
+          git add .
+          # "echo" returns true so the build succeeds, even if no changed files
+          git commit -m 'Update words file' || echo
+          git push
