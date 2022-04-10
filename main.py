@@ -1,4 +1,3 @@
-from os import environ
 from sys import stdout
 
 from werkzeug.exceptions import HTTPException
