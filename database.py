@@ -14,7 +14,7 @@ BACKLOGLIMIT = 25
 
 class Database:
     def __init__(self, password):
-        if exists('/.env'):
+        if exists('.env'):
             load_dotenv()
         self.client = pymongo.MongoClient(
             f"mongodb+srv://Jason:{pq(str(password))}@foodle.yiz9a.mongodb.net/{pq(str(environ.get('database')))}?retryWrites=true&w=majority",
