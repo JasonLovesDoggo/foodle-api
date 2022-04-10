@@ -2,6 +2,7 @@ from datetime import datetime
 import time
 from logging import getLogger
 from os import environ
+from os.path import exists
 from urllib.parse import quote as pq
 import pymongo as pymongo
 from bson import ObjectId
@@ -13,7 +14,8 @@ BACKLOGLIMIT = 25
 
 class Database:
     def __init__(self, password):
-        load_dotenv()
+        if exists('/.env'):
+            load_dotenv()
         self.client = pymongo.MongoClient(
             f"mongodb+srv://Jason:{pq(str(password))}@foodle.yiz9a.mongodb.net/{pq(str(environ.get('database')))}?retryWrites=true&w=majority",
             server_api=ServerApi('1'))

@@ -1,4 +1,5 @@
 from os import environ
+from os.path import exists
 from sys import stdout
 
 from dotenv import load_dotenv
@@ -18,8 +19,9 @@ log.addHandler(logging.StreamHandler(stdout))
 
 app = Flask(__name__, template_folder='templates')
 app.config["DEBUG"] = True
-load_dotenv()
-db = Database(environ.get('mongopass'))
+if exists('/.env'):
+    load_dotenv()
+
 
 @app.route('/')
 def index():
