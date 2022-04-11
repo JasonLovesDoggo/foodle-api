@@ -13,7 +13,7 @@ from utils import *
 import logging  # will only be using for exceptions
 
 logging.basicConfig(format="%(asctime)s - [%(name)s | %(filename)s:%(lineno)d] - %(levelname)s - %(message)s",
-                    filename="api.log", filemode="w+", level=logging.INFO, )
+                    filename="api.log", filemode="w+", level=logging.DEBUG)
 log = logging.getLogger(__name__)
 log.addHandler(logging.StreamHandler(stdout))
 
@@ -37,7 +37,8 @@ def function_name(error):
 
 @app.get('/v1/foodle/definition/<word>')
 def definition(word):
-    db.LogRequest(request.full_path)  # TODO have a seperate db list with just word count guesses
+    db.LogRequest(RemoveUriArguments(request, 'word'))  # TODO have a seperate db list with just word count guesses
+    db.LogWord(word)
     return get_word(word)
 
 
