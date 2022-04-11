@@ -50,21 +50,21 @@ def version():
 @app.get("/v1/foodle/word/daily")
 def search_query_daily():
     db.LogRequest(request.full_path)
-    return CreateWordResponse(get_daily(), 200), 200
+    return {'word': get_daily()}, 200
 
 
 @app.get("/v1/foodle/word/hourly")
 def search_query_hourly():
     db.LogRequest(request.full_path)
     hourly_word = 'hourly'  # Better Logic
-    return CreateWordResponse(hourly_word, 200), 200
+    return {'word': hourly_word}, 200
 
 
 @app.get("/v1/foodle/word/infinite")
 def search_query_infinite():
     db.LogRequest(request.full_path)
     infinite_word = 'infinite'  # Better Logic
-    return CreateWordResponse(infinite_word, 200), 200
+    return {'word': infinite_word}, 200
 
 
 # I know app.post but a plugin im using to debug doesn't

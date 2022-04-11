@@ -8,9 +8,6 @@ from datetime import datetime
 
 from utils import *
 
-
-
-
 class StatsWrapper:
     def __init__(self):
         if exists('.env'):
