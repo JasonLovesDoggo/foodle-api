@@ -35,7 +35,7 @@ def function_name(error):
                            error=error)
 
 
-@app.get('/v1/foodle/definition/<word>')
+@app.get('/v1/foodle/definition/<word>')    # if word not in dict try getting from the dictionaryapi
 def definition(word):
     db.LogWord(word)
     db.LogRequest(RemoveUriArguments(request, 'word'))  # TODO have a seperate db list with just word count guesses
