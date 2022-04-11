@@ -9,28 +9,33 @@ from bson import ObjectId
 from dotenv import load_dotenv
 from pymongo.server_api import ServerApi
 
-BACKLOGLIMIT = 5
+BACKLOGLIMIT = 5      # change to 25 or 100 in prod
 
 
 class Database:
     def __init__(self, password):
         if exists('.env'):
             load_dotenv()
+            #mongo db client
         self.client = pymongo.MongoClient(
             f"mongodb+srv://Jason:{pq(str(password))}@foodle.yiz9a.mongodb.net/{pq(str(environ.get('database')))}?retryWrites=true&w=majority",
             server_api=ServerApi('1'))
-        print(self.client.server_info)
+        # the databases
         self.stats_db = self.client.foodle_stats
         self.requests_db = self.client.requests_db
         self.words_db = self.client.words_db
+        #logger
         self.log = getLogger(__name__)
+
         # clear this after it's over the specified BACKLOGLIMIT, so we don't overuse atlas
         self.WinBacklog: list[dict] = []
         self.LoseBacklog: list[dict] = []
-        self.OldReqDataID = {}  # So the db doesn't have to re-query the database every time it wants to update the requests
-        self.OldWordDataID = {}  # So the db doesn't have to re-query the database every time it wants to update the requests
+        self.OldWordDataID: str = ''
+        self.OldReqDataID: str = ''
+        #load the obj ids
+        self.SetOldDataIDS()
+
         self.SendRequestIN = 0  # see self.CheckBacklogs
-        self.SetOldReqDataID()
         self.RequestLogs = self.requests_db[datetime.today().strftime('%Y-%m-%d')].find_one(ObjectId(self.OldReqDataID))
         self.WordLogs = self.words_db[datetime.today().strftime('%Y-%m-%d')].find_one(ObjectId(self.OldWordDataID))
 
@@ -59,7 +64,7 @@ class Database:
         if word not in self.WordLogs.keys():
             self.WordLogs[word] = 0
         self.WordLogs[word] += 1
-        self.CheckBacklogs()
+        #self.CheckBacklogs()   no need as its only called to the /definition/ path and that allready runs Log Request
 
     def _SendWins(self):
         self.log.info(f'Sending {BACKLOGLIMIT} wins to the database')
@@ -71,17 +76,12 @@ class Database:
         self.stats_db['losses'].insert_many(self.LoseBacklog)
         self.LoseBacklog = []
 
-    def SetOldReqDataID(self):
+    def SetOldDataIDS(self):
         rdbd = self.requests_db[datetime.today().strftime('%Y-%m-%d')]
-        if self.OldReqDataID == {}:
-            self.OldReqDataID = (rdbd.find_one()['_id'])
-
         wdb = self.words_db[datetime.today().strftime('%Y-%m-%d')]
-        if wdb.estimated_document_count() == 0:
-            #wdb.insert_one({'pizza': 1})
-            pass
-        if self.OldWordDataID == {}:
-            self.OldWordDataID = (wdb.find_one()['_id'])
+        # So the db doesn't have to re-query the database every time it wants to update the requests
+        self.OldReqDataID = str(rdbd.find_one()['_id'])
+        self.OldWordDataID = str(wdb.find_one()['_id'])
 
     def _SendRequestData(self):
         self.log.info(f'Sending {BACKLOGLIMIT} Requests\'s data to the database')
@@ -93,14 +93,16 @@ class Database:
         self.log.info(f'Sending {BACKLOGLIMIT} Words\'s data to the database')
         rdbd = self.words_db[datetime.today().strftime('%Y-%m-%d')]
         rdbd.find_one_and_replace({"_id": ObjectId(self.OldWordDataID)}, self.WordLogs)
-        print('62538859b85e35b2fd1b69c6' == str(self.OldWordDataID))
 
     def CheckBacklogs(self):
-        self._SendWordData()
         self.SendRequestIN += 1
         if len(self.WinBacklog) >= BACKLOGLIMIT:
             self._SendWins()
+            self.WinBacklog = []
         if len(self.LoseBacklog) >= BACKLOGLIMIT:
             self._SendLosses()
+            self.LoseBacklog = []
         if int(self.SendRequestIN) >= BACKLOGLIMIT:
+            self.SendRequestIN = 0
             self._SendRequestData()
+            self._SendWordData()
