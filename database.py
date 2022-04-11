@@ -19,7 +19,7 @@ class Database:
         self.client = pymongo.MongoClient(
             f"mongodb+srv://Jason:{pq(str(password))}@foodle.yiz9a.mongodb.net/{pq(str(environ.get('database')))}?retryWrites=true&w=majority",
             server_api=ServerApi('1'))
-        print(environ.get('database'))
+        print(self.client.server_info)
         self.stats_db = self.client.foodle_stats
         self.requests_db = self.client.requests_db
         self.words_db = self.client.words_db
