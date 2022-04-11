@@ -30,7 +30,7 @@ def index():
 
 @app.errorhandler(HTTPException)
 def function_name(error):
-    num = randrange(1, 3)
+    num = randrange(1, 3)      # 2/3 chance that it will show a random dog error 1/3 chance it will show a cat error
     return render_template('error.html', content=f"https://http.{'cat' if num == 1 else 'dog'}/{error.code}.jpg",
                            error=error)
 
