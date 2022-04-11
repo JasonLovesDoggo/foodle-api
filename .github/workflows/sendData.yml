@@ -3,8 +3,8 @@ name: Send Data
 
 on:
   schedule:
-    # Runs “At 00:00.” every day (see https://crontab.guru)
-    - cron: '0 0 * * *'
+    # Runs “At 00:05.” every day (see https://crontab.guru) slightly delayed so the other workflow has time to run
+    - cron: '5 0 * * *'
   workflow_dispatch:
 
 
