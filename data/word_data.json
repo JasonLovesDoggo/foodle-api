@@ -6444,6 +6444,65 @@
       "audio": ""
     }
   },
+  "umami": {
+    "meanings": [
+      {
+        "partOfSpeech": "noun",
+        "definitions": [
+          {
+            "definition": "One of the five basic tastes, the savory taste of foods such as seaweed, cured fish, aged cheeses and meats.",
+            "synonyms": [
+              "brothiness",
+              "deliciousness",
+              "meatiness",
+              "savoriness"
+            ]
+          }
+        ],
+        "synonyms": [
+          "brothiness",
+          "deliciousness",
+          "meatiness",
+          "savoriness"
+        ]
+      }
+    ],
+    "license": {
+      "name": "CC BY-SA 3.0",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0"
+    },
+    "sourceUrls": [
+      "https://en.wiktionary.org/wiki/umami"
+    ],
+    "audio": {
+      "audio": "https://api.dictionaryapi.dev/media/pronunciations/en/umami-au.mp3",
+      "sourceUrl": "https://commons.wikimedia.org/w/index.php?curid=75859058",
+      "license": {
+        "name": "BY-SA 4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0"
+      }
+    }
+  },
+  "mirin": {
+    "phonetics": [],
+    "meanings": [
+      {
+        "partOfSpeech": "noun",
+        "definitions": [
+          {
+            "definition": "A form of Japanese rice wine, less alcoholic than sake."
+          }
+        ]
+      }
+    ],
+    "license": {
+      "name": "CC BY-SA 3.0",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0"
+    },
+    "sourceUrls": [
+      "https://en.wiktionary.org/wiki/mirin"
+    ]
+  },
   "rolls": {
     "meanings": [
       {
@@ -7106,26 +7165,6 @@
     "audio": {
       "audio": ""
     }
-  },
-  "mirin": {
-    "phonetics": [],
-    "meanings": [
-      {
-        "partOfSpeech": "noun",
-        "definitions": [
-          {
-            "definition": "A form of Japanese rice wine, less alcoholic than sake."
-          }
-        ]
-      }
-    ],
-    "license": {
-      "name": "CC BY-SA 3.0",
-      "url": "https://creativecommons.org/licenses/by-sa/3.0"
-    },
-    "sourceUrls": [
-      "https://en.wiktionary.org/wiki/mirin"
-    ]
   },
   "wings": {
     "meanings": [
