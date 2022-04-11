@@ -5,7 +5,8 @@ import requests
 modes = ['daily', 'hourly', 'infinite']
 stat_types = ['win', 'lose', 'concede']
 test_words = ["fresh", "crust", "serve", "flesh", "seedy", "corny"]
-requests_dict = {'POST': [''], 'GET': ['/v1/foodle/version']}
+requests_dict = {'POST': [],
+                 'GET': ['/foodle/version', '/foodle/word/daily', '/foodle/word/hourly', '/foodle/word/infinite']}
 VERSION = 'v1'
 BASE = 'http://127.0.0.1:5000/'
 URI_BASE = f'{BASE}/{VERSION}'
@@ -33,17 +34,20 @@ def main():
     for stat in stat_types:
         send_stats_POST(stat)
     for uri in requests_dict['POST']:
-        statuss.append((uri, send_req_POST(URI_BASE + uri)))
+        statuss.append((URI_BASE + uri, send_req_POST(URI_BASE + uri)))
     for uri in requests_dict['GET']:
-        statuss.append((uri, send_req_GET(URI_BASE + uri)))
+        statuss.append((URI_BASE + uri, send_req_GET(URI_BASE + uri)))
+    def_uri = URI_BASE + f'/foodle/definition/{choice(test_words)}'
+    statuss.append((def_uri, send_req_GET(def_uri)))
     for uri, response in statuss:
         if response != 200:
             global Errored
             Errored = True
             prRed(f'{uri} failed with error {response}')
+        prGreen(f'{uri} Successful!')
 
     if not Errored:  # no it can't ignore the IDE
-        prGreen(f'All tests Successful')
+        prGreen(f'\nAll tests Successful')
 
 
 def send_req_POST(path):
