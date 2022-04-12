@@ -1,3 +1,5 @@
+import time
+from datetime import datetime
 from os import environ
 from os.path import exists
 from sys import stdout
@@ -7,7 +9,6 @@ from werkzeug.exceptions import HTTPException
 from random import randrange
 
 from flask import redirect, Flask, render_template, request
-
 from database import Database
 from utils import *
 import logging  # will only be using for exceptions
@@ -18,6 +19,8 @@ log = logging.getLogger(__name__)
 log.addHandler(logging.StreamHandler(stdout))
 
 app = Flask(__name__, template_folder='templates')
+app.stats = Stats()
+
 #app.config["DEBUG"] = True
 if exists('.env'):
     load_dotenv()
@@ -27,6 +30,12 @@ db = Database(environ.get('mongopass'))
 def index():
     return redirect('https://nasoj.me')
 
+
+@app.route('/stats')
+@app.route('/statistics')
+@app.route('/info')
+def statistics():
+    return {'uptime': app.stats.uptime_info()}, 200
 
 @app.errorhandler(HTTPException)
 def function_name(error):

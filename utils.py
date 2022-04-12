@@ -1,4 +1,5 @@
 import json
+import time
 from functools import lru_cache
 from logging import getLogger
 
@@ -22,6 +23,7 @@ with open('data/wordlist.json', 'r') as wl:
 with open('data/generated_words.json', 'r') as gw:
     gen_words = json.load(gw)
     log.info('loaded Generated words')
+
 
 def HourReplacment(hour: str):  # im sure there is a builtin for this, but I don't know it
     hourmap = {'0': '12 AM',
@@ -50,6 +52,7 @@ def HourReplacment(hour: str):  # im sure there is a builtin for this, but I don
                '23': '11 PM'}
     return hourmap[str(hour)]
 
+
 @lru_cache(maxsize=1)
 def get_daily():
     return gen_words['daily']
@@ -73,8 +76,21 @@ def CreateErrorResponse(error: str, status_code: int):
     log.warning(f'User Error code: {status_code} error {error}')
     return jsonify({'status': status_code, 'error': error, })
 
+
 def RemoveUriArguments(request: flask.Request, argument):
     argument_data = str(request.view_args[argument])
     uri_base = str(request.full_path).split(argument_data)[0]
     return uri_base
 
+
+class Stats:
+    def __init__(self):
+        self.__start_time_epoc = time.time()
+
+    def uptime_info(self):
+        now = time.time() - self.__start_time_epoc         # total time in seconds
+
+        days, hours, minutes, seconds = now // 86400, now // 3600 % 24, now // 60 % 60, now % 60
+        uptime_readable = {'days': days, 'hours': hours, 'minutes': minutes, 'seconds': seconds}
+
+        return {'total_seconds': now, 'readable': uptime_readable}

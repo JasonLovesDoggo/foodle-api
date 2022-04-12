@@ -8,6 +8,7 @@ import pymongo as pymongo
 from bson import ObjectId
 from dotenv import load_dotenv
 from pymongo.server_api import ServerApi
+from typing import List, Dict
 
 BACKLOGLIMIT = 5  # change to 25 or 100 in prod
 
@@ -27,8 +28,8 @@ class Database:
         self.log = getLogger(__name__)
 
         # clear this after it's over the specified BACKLOGLIMIT, so we don't overuse atlas
-        self.WinBacklog: list[dict] = []
-        self.LoseBacklog: list[dict] = []
+        self.WinBacklog: List[Dict] = []
+        self.LoseBacklog: List[Dict] = []
         self.WordObjID: str = ''
         self.RequestsObjID: str = ''
         # load the obj ids
@@ -77,12 +78,12 @@ class Database:
         self.LoseBacklog = []
 
     def SetOldDataIDS(self):
-        """ So the db doesn'ttt have to re-query the database every time it wants to update the requests  """
+        """ So the db doesn'ttttt have to re-query the database every time it wants to update the requests  """
         collist = self.requests_db.list_collection_names()  # both req and word db collection names should be the same
         today: str = datetime.today().strftime('%Y-%m-%d')
         rdbd = self.requests_db[today]
         wdb = self.words_db[today]
-        if today not in collist:  # If it's a new day and a collection for that day's data doesn't exit
+        if today not in collist:  # If it's a new day and a collection for that day's data doesn't exit       TODO: slight bug someplace here
             self.RequestsObjID = rdbd.insert_one({"/v1/foodle/version/?": 1}).inserted_id
             self.WordObjID = wdb.insert_one({"umami": 1}).inserted_id
         self.RequestsObjID = str(rdbd.find_one()['_id'])
