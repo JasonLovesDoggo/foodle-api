@@ -97,10 +97,11 @@ class Stats:
     def __init__(self):
         self.__start_time_epoc = time.time()
 
+    @cached(cache=TTLCache(maxsize=1, ttl=30))  # 30s cache size with max size of 1
     def uptime_info(self):
         now = time.time() - self.__start_time_epoc  # total time in seconds
 
-        days, hours, minutes, seconds = now // 86400, now // 3600 % 24, now // 60 % 60, now % 60
-        uptime_readable = {'days': days, 'hours': hours, 'minutes': minutes, 'seconds': int(seconds)}
+        days, hours, minutes, seconds = int(now // 86400), int(now // 3600 % 24), int(now // 60 % 60), int(now % 60)
+        uptime_readable = {'days': days, 'hours': hours, 'minutes': minutes, 'seconds': seconds}
 
-        return {'total_seconds': now, 'readable': uptime_readable}
+        return {'total_seconds': int(now), 'readable': uptime_readable}
