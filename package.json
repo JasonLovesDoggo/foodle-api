@@ -1,4 +1,6 @@
 {
+    "name": "foodle-api",
+  "version": "2.0.0",
   "dependencies": {
     "seedrandom": "^3.0.5"
   }
