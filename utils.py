@@ -101,6 +101,6 @@ class Stats:
         now = time.time() - self.__start_time_epoc  # total time in seconds
 
         days, hours, minutes, seconds = now // 86400, now // 3600 % 24, now // 60 % 60, now % 60
-        uptime_readable = {'days': days, 'hours': hours, 'minutes': minutes, 'seconds': seconds}
+        uptime_readable = {'days': days, 'hours': hours, 'minutes': minutes, 'seconds': int(seconds)}
 
         return {'total_seconds': now, 'readable': uptime_readable}
