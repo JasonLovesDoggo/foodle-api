@@ -15,7 +15,7 @@ BACKLOGLIMIT = 5  # change to 25 or 100 in prod
 
 class Database:
     def __init__(self, password):
-        if exists('.env'):
+        if exists('../.env'):
             load_dotenv()  # mongo db client
         self.client = pymongo.MongoClient(
             f"mongodb+srv://Jason:{pq(str(password))}@foodle.yiz9a.mongodb.net/{pq(str(environ.get('database')))}?retryWrites=true&w=majority",
@@ -92,7 +92,7 @@ class Database:
     def _SendRequestData(self):
         self.log.info(f'Sending {BACKLOGLIMIT} Requests\'s data to the database')
         rdbd = self.requests_db[datetime.today().strftime('%Y-%m-%d')]
-        self.log.debug(self.RequestLogs)
+        #self.log.debug(self.RequestLogs) usually isn't needed
         rdbd.find_one_and_replace({"_id": ObjectId(self.RequestsObjID)}, self.RequestLogs)
 
     def _SendWordData(self):

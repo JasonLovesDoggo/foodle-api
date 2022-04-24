@@ -1,5 +1,6 @@
 import json
-from os import system
+from datetime import datetime
+from os import system, getcwd
 import time
 from functools import lru_cache
 from logging import getLogger
@@ -14,19 +15,19 @@ day = f'{int(time.strftime("%d"))}/{int(time.strftime("%m"))}/{time.strftime("%Y
 
 def load_data():
     global number, word_data, wordlist, gen_words
-    with open('data/version.json', 'r') as vj:
+    with open('./data/version.json', 'r') as vj:
         number = json.load(vj)
         log.info(f'loaded version num {number}')
 
-    with open('data/word_data.json', 'r') as wd:
+    with open('./data/word_data.json', 'r') as wd:
         word_data = json.load(wd)
         log.info('loaded word data')
 
-    with open('data/wordlist.json', 'r') as wl:
+    with open('./data/wordlist.json', 'r') as wl:
         wordlist = json.load(wl)
         log.info('loaded word list')
 
-    with open('data/generated_words.json', 'r') as gw:
+    with open('./data/generated_words.json', 'r') as gw:
         gen_words = json.load(gw)
         log.info('loaded Generated words')
 
@@ -94,14 +95,57 @@ def RemoveUriArguments(request: flask.Request, argument):
 
 
 class Stats:
-    def __init__(self):
+    def __init__(self, app: flask.app.Flask):
+        self.app = app
         self.__start_time_epoc = time.time()
+        self.__total_requests_count = None
+        self.__daily_requests_count = None
 
-    @cached(cache=TTLCache(maxsize=1, ttl=30))  # 30s cache size with max size of 1
+    @cached(cache=TTLCache(maxsize=1, ttl=60 * 5))  # 5 min TTL cache refresh time  with max size of 1
+    def total_requests(self) -> int:
+        #if not self.__total_requests_count:
+        self._load_request_count()
+        return int(self.__total_requests_count)
+
+    @cached(cache=TTLCache(maxsize=1, ttl=60))  # 60s cache size with max size of 1
+    def daily_requests(self) -> int:
+        #if not self.__daily_requests_count:
+        self._load_request_count()  # todo: regen system: comment the ttl cache would kind of just take care of that so don't check
+        return int(self.__daily_requests_count)
+
+    @cached(cache=TTLCache(maxsize=1, ttl=10))  # 10s cache size with max size of 1
     def uptime_info(self):
+        """
+        returns total uptime of the api
+        uses a 15s TTL cache so that it doesn't get strained if used very often
+
+
+        :return: dict total seconds in multiple formats
+        """
         now = time.time() - self.__start_time_epoc  # total time in seconds
 
         days, hours, minutes, seconds = int(now // 86400), int(now // 3600 % 24), int(now // 60 % 60), int(now % 60)
         uptime_readable = {'days': days, 'hours': hours, 'minutes': minutes, 'seconds': seconds}
 
         return {'total_seconds': int(now), 'readable': uptime_readable}
+
+    def _load_request_count(self):
+        today = datetime.today().strftime('%Y-%m-%d')
+        log.debug('requesting requests db')
+        self.__total_requests_count = 0
+        self.__daily_requests_count = 0
+
+        dailies = self.app.db.requests_db[today].find_one({})
+        del dailies['_id']
+        for unique_path in dailies.keys():
+            self.__daily_requests_count += dailies[unique_path]
+
+        for collection in list(self.app.db.requests_db.list_collection_names()):  # ignore IDE
+            collection_list = self.app.db.requests_db[collection].find({})
+            for document in collection_list:
+                del document['_id']  # remove the id from the document
+                unique_requests = document.keys()
+                for unique_request in unique_requests:
+                    self.__total_requests_count += (document[unique_request])
+
+        log.info(f'successfully loaded {self.__total_requests_count} requests')
