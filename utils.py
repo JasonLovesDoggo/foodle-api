@@ -6,6 +6,7 @@ from logging import getLogger
 from cachetools import TTLCache, cached
 import flask
 from flask import jsonify
+from nodejs.bindings import node_run
 
 log = getLogger(__name__)
 day = f'{int(time.strftime("%d"))}/{int(time.strftime("%m"))}/{time.strftime("%Y")}'
@@ -29,12 +30,14 @@ def load_data():
         gen_words = json.load(gw)
         log.info('loaded Generated words')
 
+
 def reinstate_data():
     load_data()
 
 
 def regen_data():
     system('node get_words.js')
+    stderr, stdout = node_run('get_words.js')
     reinstate_data()
 
 
@@ -42,41 +45,20 @@ def regen_data():
 def check_day():
     d = f'{int(time.strftime("%d"))}/{int(time.strftime("%m"))}/{time.strftime("%Y")}'
     if gen_words['lastupdated'] != d:
-        print('ss')
+        log.info('words regenerated')
         regen_data()
 
 
 load_data()
 check_day()
-number = number # this is to shut up intelisense
-
+number = number  # this is to shut up intelisense
 
 
 def HourReplacment(hour: str):  # im sure there is a builtin for this, but I don't know it
-    hourmap = {'0': '12 AM',
-               '1': '1 AM',
-               '2': '2 AM',
-               '3': '3 AM',
-               '4': '4 AM',
-               '5': '5 AM',
-               '6': '6 AM',
-               '7': '7 AM',
-               '8': '8 AM',
-               '9': '9 AM',
-               '10': '10 AM',
-               '11': '11 AM',
-               '12': '12 PM',
-               '13': '1 PM',
-               '14': '2 PM',
-               '15': '3 PM',
-               '16': '4 PM',
-               '17': '5 PM',
-               '18': '6 PM',
-               '19': '7 PM',
-               '20': '8 PM',
-               '21': '9 PM',
-               '22': '10 PM',
-               '23': '11 PM'}
+    hourmap = {'0': '12 AM', '1': '1 AM', '2': '2 AM', '3': '3 AM', '4': '4 AM', '5': '5 AM', '6': '6 AM', '7': '7 AM',
+               '8': '8 AM', '9': '9 AM', '10': '10 AM', '11': '11 AM', '12': '12 PM', '13': '1 PM', '14': '2 PM',
+               '15': '3 PM', '16': '4 PM', '17': '5 PM', '18': '6 PM', '19': '7 PM', '20': '8 PM', '21': '9 PM',
+               '22': '10 PM', '23': '11 PM'}
     return hourmap[str(hour)]
 
 
