@@ -9,7 +9,7 @@ stat_types = ['win', 'lose', 'concede']
 requests_dict = {'POST': [],
                  'GET': ['/foodle/version', '/foodle/word/daily', '/foodle/word/hourly', '/foodle/word/infinite']}
 VERSION = 'v1'
-BASE = 'http://127.0.0.1:5000/'
+BASE = 'https://api.nasoj.me/'
 URI_BASE = f'{BASE}/{VERSION}'
 Errored = False
 statuss: List[Tuple] = []

@@ -47,8 +47,8 @@ for (let time in x) {
     hourlys[time.toString()] = wordList[(seededRandomInt(0, wordList.length, tempdate))]
 }
 
-
-
+let lastupdated = `${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`
+data['lastupdated'] = lastupdated
 fs.writeFile("./data/generated_words.json", JSON.stringify(data), function(err) {
     if (err) throw err;
     console.log('complete');

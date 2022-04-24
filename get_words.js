@@ -48,6 +48,8 @@ for (var time in x) {
     var tempdate = new Date(today.getFullYear(), today.getMonth(), today.getDate(), time).valueOf();
     hourlys[time.toString()] = wordlist_json_1["default"][(seededRandomInt(0, wordlist_json_1["default"].length, tempdate))];
 }
+var lastupdated = "".concat(today.getDate(), "/").concat(today.getMonth() + 1, "/").concat(today.getFullYear());
+data['lastupdated'] = lastupdated;
 fs.writeFile("./data/generated_words.json", JSON.stringify(data), function (err) {
     if (err)
         throw err;

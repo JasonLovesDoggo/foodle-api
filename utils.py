@@ -1,28 +1,55 @@
 import json
+from os import system
 import time
 from functools import lru_cache
 from logging import getLogger
-
+from cachetools import TTLCache, cached
 import flask
 from flask import jsonify
 
 log = getLogger(__name__)
+day = f'{int(time.strftime("%d"))}/{int(time.strftime("%m"))}/{time.strftime("%Y")}'
 
-with open('data/version.json', 'r') as vj:
-    number = json.load(vj)
-    log.info(f'loaded version num {number}')
 
-with open('data/word_data.json', 'r') as wd:
-    word_data = json.load(wd)
-    log.info('loaded word data')
+def load_data():
+    global number, word_data, wordlist, gen_words
+    with open('data/version.json', 'r') as vj:
+        number = json.load(vj)
+        log.info(f'loaded version num {number}')
 
-with open('data/wordlist.json', 'r') as wl:
-    wordlist = json.load(wl)
-    log.info('loaded word list')
+    with open('data/word_data.json', 'r') as wd:
+        word_data = json.load(wd)
+        log.info('loaded word data')
 
-with open('data/generated_words.json', 'r') as gw:
-    gen_words = json.load(gw)
-    log.info('loaded Generated words')
+    with open('data/wordlist.json', 'r') as wl:
+        wordlist = json.load(wl)
+        log.info('loaded word list')
+
+    with open('data/generated_words.json', 'r') as gw:
+        gen_words = json.load(gw)
+        log.info('loaded Generated words')
+
+def reinstate_data():
+    load_data()
+
+
+def regen_data():
+    system('node get_words.js')
+    reinstate_data()
+
+
+@cached(cache=TTLCache(maxsize=15, ttl=60 * 5))  # 5 mins with max size of 15
+def check_day():
+    d = f'{int(time.strftime("%d"))}/{int(time.strftime("%m"))}/{time.strftime("%Y")}'
+    if gen_words['lastupdated'] != d:
+        print('ss')
+        regen_data()
+
+
+load_data()
+check_day()
+number = number # this is to shut up intelisense
+
 
 
 def HourReplacment(hour: str):  # im sure there is a builtin for this, but I don't know it
@@ -55,6 +82,7 @@ def HourReplacment(hour: str):  # im sure there is a builtin for this, but I don
 
 @lru_cache(maxsize=1)
 def get_daily():
+    check_day()
     return gen_words['daily']
 
 
@@ -88,7 +116,7 @@ class Stats:
         self.__start_time_epoc = time.time()
 
     def uptime_info(self):
-        now = time.time() - self.__start_time_epoc         # total time in seconds
+        now = time.time() - self.__start_time_epoc  # total time in seconds
 
         days, hours, minutes, seconds = now // 86400, now // 3600 % 24, now // 60 % 60, now % 60
         uptime_readable = {'days': days, 'hours': hours, 'minutes': minutes, 'seconds': seconds}

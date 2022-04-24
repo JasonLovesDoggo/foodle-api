@@ -1,11 +1,10 @@
-import time
-from datetime import datetime
 from os import environ
 from os.path import exists
 from sys import stdout
 
 from dotenv import load_dotenv
 from werkzeug.exceptions import HTTPException
+from werkzeug.utils import import_string
 from random import randrange
 
 from flask import redirect, Flask, render_template, request
@@ -19,16 +18,46 @@ log = logging.getLogger(__name__)
 log.addHandler(logging.StreamHandler(stdout))
 
 app = Flask(__name__, template_folder='templates')
+app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 app.stats = Stats()
 
-#app.config["DEBUG"] = True
+# app.config["DEBUG"] = True
 if exists('.env'):
     load_dotenv()
 db = Database(environ.get('mongopass'))
 
+
 @app.route('/')
 def index():
     return redirect('https://nasoj.me')
+
+
+@app.route('/routes')
+def routes():
+    """Print all defined routes and their endpoint docstrings
+
+    This also handles flask-router, which uses a centralized scheme
+    to deal with routes, instead of defining them as a decorator
+    on the target function.
+    """
+    api_routes = []
+    for rule in app.url_map.iter_rules():
+        try:
+            if rule.endpoint != 'static':
+                if hasattr(app.view_functions[rule.endpoint], 'import_name'):
+                    import_name = app.view_functions[rule.endpoint].import_name
+                    obj = import_string(import_name)
+                    api_routes.append({rule.rule: "%s\n%s" % (",".join(list(rule.methods)), obj.__doc__)})
+                else:
+                    api_routes.append({rule.rule: app.view_functions[rule.endpoint].__doc__})
+        except Exception as exc:
+            api_routes.append({rule.rule:
+                                   "(%s) INVALID ROUTE DEFINITION!!!" % rule.endpoint})
+            route_info = "%s => %s" % (rule.rule, rule.endpoint)
+            app.logger.error("Invalid route: %s" % route_info, exc_info=True)
+            # func_list[rule.rule] = obj.__doc__
+
+    return jsonify(api_routes), 200
 
 
 @app.route('/stats')
@@ -37,14 +66,15 @@ def index():
 def statistics():
     return {'uptime': app.stats.uptime_info()}, 200
 
+
 @app.errorhandler(HTTPException)
 def function_name(error):
-    num = randrange(1, 3)      # 2/3 chance that it will show a random dog error 1/3 chance it will show a cat error
+    num = randrange(1, 3)  # 2/3 chance that it will show a random dog error 1/3 chance it will show a cat error
     return render_template('error.html', content=f"https://http.{'cat' if num == 1 else 'dog'}/{error.code}.jpg",
                            error=error)
 
 
-@app.get('/v1/foodle/definition/<word>')    # if word not in dict try getting from the dictionaryapi
+@app.get('/v1/foodle/definition/<word>')  # if word not in dict try getting from the dictionaryapi
 def definition(word):
     db.LogWord(word)
     db.LogRequest(RemoveUriArguments(request, 'word'))  # TODO have a seperate db list with just word count guesses
