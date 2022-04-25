@@ -1,12 +1,11 @@
-import json
-from os import getenv, environ
+from os import environ
 from os.path import exists
 from urllib.parse import quote_plus
 from dotenv import load_dotenv
 import requests
-from datetime import datetime
 
-from utils import *
+from utils.utils import *
+
 
 class StatsWrapper:
     def __init__(self):

@@ -55,6 +55,7 @@ def check_day():
 load_data()
 check_day()
 number = number  # this is to shut up intelisense
+gen_words = gen_words  # this is to shut up intelisense
 
 
 def HourReplacment(hour: str):  # im sure there is a builtin for this, but I don't know it
