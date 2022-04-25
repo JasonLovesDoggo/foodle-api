@@ -71,7 +71,7 @@ def get_daily():
     return gen_words['daily']
 
 
-@lru_cache
+@lru_cache(1)
 def get_version():
     return number
 
