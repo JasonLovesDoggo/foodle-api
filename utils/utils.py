@@ -106,13 +106,12 @@ class Stats:
     @cached(cache=TTLCache(maxsize=1, ttl=60 * 5))  # 5 min TTL cache refresh time  with max size of 1
     def total_requests(self) -> int:
         #if not self.__total_requests_count:
-        self._load_request_count()
+        self._load_request_count() #todo: find a better way to regen than to call that
         return int(self.__total_requests_count)
 
     @cached(cache=TTLCache(maxsize=1, ttl=60))  # 60s cache size with max size of 1
     def daily_requests(self) -> int:
         #if not self.__daily_requests_count:
-        self._load_request_count()  # todo: regen system: comment the ttl cache would kind of just take care of that so don't check
         return int(self.__daily_requests_count)
 
     @cached(cache=TTLCache(maxsize=1, ttl=10))  # 10s cache size with max size of 1
@@ -136,10 +135,7 @@ class Stats:
         log.debug('requesting requests db')
         self.__total_requests_count = 0
         self.__daily_requests_count = 0
-        print(today)
-
         dailies = self.app.db.requests_db[today].find_one({})
-        print(dailies) #FIXME remove
         del dailies['_id']
         for unique_path in dailies.keys():
             self.__daily_requests_count += dailies[unique_path]
