@@ -1,39 +1,19 @@
-from os import environ
-from os.path import exists
+import logging  # will only be using for exceptions
+from random import randrange
 from sys import stdout
 
-from dotenv import load_dotenv
+from flask import redirect, render_template, request, g
 from werkzeug.exceptions import HTTPException
 from werkzeug.utils import import_string
-from random import randrange
 
-from flask import redirect, Flask, render_template, request, g
-from utils.database import Database
-from utils.filters import FaviconFilter
 from utils.utils import *
-import logging  # will only be using for exceptions
 
 logging.basicConfig(format="%(asctime)s - [%(name)s | %(filename)s:%(lineno)d] - %(levelname)s - %(message)s",
                     filename="api.log", filemode="w+", level=logging.DEBUG)
 log = logging.getLogger(__name__)
-
 log.addHandler(logging.StreamHandler(stdout))
-# logging filters
-logging.getLogger('werkzeug').addFilter(FaviconFilter())
-###
 
-
-app = Flask(__name__, template_folder='templates')  # todo: subclass Flask with  custom stuff like db and stats
-app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
-
-if exists('.env'):  # local work
-    load_dotenv()
-app.db = Database(environ.get('mongopass'))
-
-app.stats = Stats(app)  # keep this under db load
-
-app.config["DEBUG"] = True
-
+app = Foodle(__name__, template_folder='templates')
 
 @app.route('/')
 def index():

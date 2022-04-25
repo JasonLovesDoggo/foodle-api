@@ -9,6 +9,8 @@ import flask
 from flask import jsonify
 from nodejs.bindings import node_run
 
+from utils.foodle import Foodle
+
 log = getLogger(__name__)
 day = f'{int(time.strftime("%d"))}/{int(time.strftime("%m"))}/{time.strftime("%Y")}'
 
@@ -95,7 +97,7 @@ def RemoveUriArguments(request: flask.Request, argument):
 
 
 class Stats:
-    def __init__(self, app: flask.app.Flask):
+    def __init__(self, app: Foodle):
         self.app = app
         self.__start_time_epoc = time.time()
         self.__total_requests_count = None
@@ -134,8 +136,10 @@ class Stats:
         log.debug('requesting requests db')
         self.__total_requests_count = 0
         self.__daily_requests_count = 0
+        print(today)
 
         dailies = self.app.db.requests_db[today].find_one({})
+        print(dailies) #FIXME remove
         del dailies['_id']
         for unique_path in dailies.keys():
             self.__daily_requests_count += dailies[unique_path]
