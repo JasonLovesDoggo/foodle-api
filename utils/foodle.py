@@ -16,7 +16,7 @@ class Foodle(Flask):
 
         if exists('.env'):  # local work
             load_dotenv()
-        self.db = Database(environ.get('mongopass'))
+        self.db = Database(environ.get('mongopass'), self)
         self.stats = utils.Stats(self)  # keep this under db load
         self.configs()
 
@@ -25,5 +25,3 @@ class Foodle(Flask):
         self.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 
         self.config["DEBUG"] = True
-
-
