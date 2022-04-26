@@ -14,7 +14,8 @@ BACKLOGLIMIT = 5  # change to 25 or 100 in prod
 
 
 class Database:
-    def __init__(self, password):
+    def __init__(self, password, app): # needs to be a The foodle class (see utils.foodle / Foodle)
+        self.app = app
         if exists('../.env'):
             load_dotenv()  # mongo db client
         self.client = pymongo.MongoClient(
@@ -56,6 +57,7 @@ class Database:
         self.lose(mode, word, guesses, conceded=True)
 
     def LogRequest(self, path):
+        self.app.stats.log_request()
         if path not in self.RequestLogs.keys():
             self.RequestLogs[path] = 0
         self.RequestLogs[path] += 1
