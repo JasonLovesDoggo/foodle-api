@@ -1,6 +1,6 @@
 import json
 from datetime import datetime
-from os import system
+from os import system, environ
 import time
 from functools import lru_cache
 from logging import getLogger
@@ -11,6 +11,7 @@ import flask
 from flask import jsonify
 from nodejs.bindings import node_run
 
+from utils.database import Database
 from utils.foodle import Foodle
 
 log = getLogger(__name__)
@@ -107,8 +108,14 @@ class Stats:
         self._load_request_count()
 
     def log_request(self):
-        self.requests['daily'][self.__today()] += 1
-        self.requests['total'] += 1
+        try:
+            self.requests['daily'][self.__today()] += 1
+            self.requests['total'] += 1
+        except KeyError:
+
+            self.app.db = Database(environ.get('mongopass'), self.app)
+            self._load_request_count()
+            self.log_request()
 
     @cached(cache=TTLCache(maxsize=1, ttl=60 * 5))  # 5 min TTL cache refresh time  with max size of 1
     def total_requests(self) -> int:
