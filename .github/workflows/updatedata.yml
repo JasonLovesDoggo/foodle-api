@@ -48,7 +48,7 @@ jobs:
           python-version: '3.8' # install the python version needed
 
       - name: Install requirments
-        run: pip install -r github-reqs.txt
+        run: pip install -r requirements.txt
 
       - name: Run Sender
         env:
