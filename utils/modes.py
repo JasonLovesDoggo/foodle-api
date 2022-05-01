@@ -19,7 +19,7 @@ class Modes(enum.Enum):
     """
     Enum for the different modes of the program.
     """
-    INFINITE = 0
-    DAILY = 1
-    HOURLY = 2
-    MINUTELY = 3
+    INFINITE = 'infinite'
+    DAILY = 'daily'
+    HOURLY = 'hourly'
+    MINUTELY = 'minutely'

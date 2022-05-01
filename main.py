@@ -18,9 +18,10 @@ log.addHandler(logging.StreamHandler(stdout))
 
 app = Foodle(__name__, template_folder='templates')
 
+
 @app.route('/')
 def index():
-    app.db.LogRequest(request.full_path)
+    app.stats.LogRequest(request.full_path, 0)
     return redirect('https://nasoj.me/foodle/')
 
 
@@ -49,7 +50,7 @@ def routes():
     to deal with routes, instead of defining them as a decorator
     on the target function.
     """
-    app.db.LogRequest(request.full_path)
+    app.stats.LogRequest(request.full_path, 100)
     api_routes = []
     for rule in app.url_map.iter_rules():
         try:
@@ -72,9 +73,15 @@ def routes():
 @app.route('/statistics')
 @app.route('/info')
 def statistics():
-    app.db.LogRequest(request.full_path)
+    app.stats.LogRequest(request.full_path, 101)
     return {'uptime': app.stats.uptime_info(),
             'requests': {'total': app.stats.total_requests(), 'today': app.stats.daily_requests()}}, 200
+
+
+@app.get('/version')
+def version():
+    app.stats.LogRequest(request.full_path, 102)
+    return jsonify(number)
 
 
 @app.errorhandler(HTTPException)
@@ -87,32 +94,27 @@ def function_name(error):
 @app.get('/v1/foodle/definition/<word>')  # if word not in dict try getting from the dictionaryapi
 def definition(word):
     app.db.LogWord(word)
-    app.db.LogRequest(RemoveUriArguments(request, 'word'))  # TODO have a seperate db list with just word count guesses
+    app.stats.LogRequest(RemoveUriArguments(request, 'word'),
+                         209)
     return get_word(word)
-
-
-@app.get('/v1/foodle/version')
-def version():
-    app.db.LogRequest(request.full_path)
-    return jsonify(number)
 
 
 @app.get("/v1/foodle/word/daily")
 def search_query_daily():
-    app.db.LogRequest(request.full_path)
+    app.stats.LogRequest(request.full_path, 210)
     return {'word': get_daily()}, 200
 
 
 @app.get("/v1/foodle/word/hourly")
 def search_query_hourly():
-    app.db.LogRequest(request.full_path)
+    app.stats.LogRequest(request.full_path, 211)
     hourly_word = 'hourly'  # Better Logic
     return {'word': hourly_word}, 200
 
 
 @app.get("/v1/foodle/word/infinite")
 def search_query_infinite():
-    app.db.LogRequest(request.full_path)
+    app.stats.LogRequest(request.full_path, 212)
     infinite_word = 'infinite'  # Better Logic
     return {'word': infinite_word}, 200
 
@@ -120,20 +122,20 @@ def search_query_infinite():
 # I know app.post but a plugin im using to debug doesn't
 @app.route("/v1/foodle/stats/win/<mode>/<word>/<guesses>", methods=["POST"])
 def win(mode: str, word: str, guesses: int):
-    app.db.LogRequest(RemoveUriArguments(request, 'mode'))
+    app.stats.LogRequest(RemoveUriArguments(request, 'mode'), 200)
     app.db.win(mode, word, guesses)  # POST http://127.0.0.1:5000/v1/foodle/stats/win/daily/pizza/5
     return jsonify({'status': 200})
 
 
 @app.route("/v1/foodle/stats/lose/<mode>/<word>/<guesses>", methods=["POST"])
 def lose(mode: str, word: str, guesses: int):
-    app.db.LogRequest(RemoveUriArguments(request, 'mode'))
+    app.stats.LogRequest(RemoveUriArguments(request, 'mode'), 201)
     app.db.lose(mode, word, guesses)
     return jsonify({'status': 200})
 
 
 @app.route("/v1/foodle/stats/concede/<mode>/<word>/<guesses>", methods=["POST"])
 def concede(mode: str, word: str, guesses: int):
-    app.db.LogRequest(RemoveUriArguments(request, 'mode'))
+    app.stats.LogRequest(RemoveUriArguments(request, 'mode'), 202)
     app.db.concede(mode, word, guesses)
     return jsonify({'status': 200})
