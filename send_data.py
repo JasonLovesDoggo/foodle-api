@@ -18,7 +18,8 @@ class StatsWrapper:
 
     def send(self):
         API_URL = f"https://api.callmebot.com/signal/send.php?phone=+{self.PHONENUM}&apikey={self.API_KEY}&text={quote_plus(self.message)}"
-        requests.get(API_URL)
+        headers = {'User-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.84 Safari/537.36'}
+        requests.get(API_URL, headers=headers, timeout=8)
         print('sent successfully')
 
     def generate_stats(self):
