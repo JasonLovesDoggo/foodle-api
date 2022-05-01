@@ -8,13 +8,17 @@ import pymongo as pymongo
 from bson import ObjectId
 from dotenv import load_dotenv
 from pymongo.server_api import ServerApi
-from typing import List, Dict
+from typing import List, Dict, TYPE_CHECKING
+
+from utils.timer import RepeatedTimer
 
 BACKLOGLIMIT = 5  # change to 25 or 100 in prod
 
+if TYPE_CHECKING:
+    from utils.foodle import Foodle
 
 class Database:
-    def __init__(self, password, app): # needs to be a The foodle class (see utils.foodle / Foodle)
+    def __init__(self, password, app: 'Foodle'):
         self.app = app
         if exists('../.env'):
             load_dotenv()  # mongo db client
@@ -40,7 +44,8 @@ class Database:
         self.RequestLogs = self.requests_db[datetime.today().strftime('%Y-%m-%d')].find_one(
             ObjectId(self.RequestsObjID))
         self.WordLogs = self.words_db[datetime.today().strftime('%Y-%m-%d')].find_one(ObjectId(self.WordObjID))
-
+        self.rt_reqs = RepeatedTimer(60 * 5, self._SendRequestData)  # run every 5 minutes
+        # uto-starts, no need of rt.start()
     def win(self, mode: str, word: str, guesses: int):
         mode = mode.lower()
         # TODO: have all the words be assigned a number to save db space
@@ -94,8 +99,10 @@ class Database:
     def _SendRequestData(self):
         self.log.info(f'Sending {BACKLOGLIMIT} Requests\'s data to the database')
         rdbd = self.requests_db[datetime.today().strftime('%Y-%m-%d')]
-        #self.log.debug(self.RequestLogs) usually isn't needed
-        rdbd.find_one_and_replace({"_id": ObjectId(self.RequestsObjID)}, self.RequestLogs)
+        self.log.debug(self.RequestLogs) #usually isn't needed
+        rdbd.insert_many(self.RequestLogs)
+
+        #rdbd.find_one_and_replace({"_id": ObjectId(self.RequestsObjID)}, self.RequestLogs)
 
     def _SendWordData(self):
         self.log.info(f'Sending {BACKLOGLIMIT} Words\'s data to the database')

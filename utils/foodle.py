@@ -5,9 +5,9 @@ from os.path import exists
 from dotenv import load_dotenv
 from flask import Flask
 
+from utils.stats import Stats
 from utils.database import Database
 from utils.filters import FaviconFilter
-from utils import utils
 
 
 class Foodle(Flask):
@@ -17,7 +17,7 @@ class Foodle(Flask):
         if exists('.env'):  # local work
             load_dotenv()
         self.db = Database(environ.get('mongopass'), self)
-        self.stats = utils.Stats(self)  # keep this under db load
+        self.stats = Stats(self)  # keep this under db load
         self.configs()
 
     def configs(self):

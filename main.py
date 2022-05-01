@@ -1,12 +1,15 @@
+import json
 import logging  # will only be using for exceptions
+import time
 from random import randrange
 from sys import stdout
 
-from flask import redirect, render_template, request, g
+from flask import redirect, render_template, request, g, jsonify
 from werkzeug.exceptions import HTTPException
 from werkzeug.utils import import_string
 
-from utils.utils import *
+from utils.foodle import Foodle
+from utils.utils import RemoveUriArguments, get_word, get_daily, number
 
 logging.basicConfig(format="%(asctime)s - [%(name)s | %(filename)s:%(lineno)d] - %(levelname)s - %(message)s",
                     filename="api.log", filemode="w+", level=logging.DEBUG)
