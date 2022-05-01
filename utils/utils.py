@@ -112,9 +112,7 @@ class Stats:
             self.requests['daily'][self.__today()] += 1
             self.requests['total'] += 1
         except KeyError:
-
-            self.app.db = Database(environ.get('mongopass'), self.app)
-            self._load_request_count()
+            self.requests['daily'][self.__today()] = 0
             self.log_request()
 
     @cached(cache=TTLCache(maxsize=1, ttl=60 * 5))  # 5 min TTL cache refresh time  with max size of 1
@@ -152,8 +150,11 @@ class Stats:
         del dailies['_id']  # remove unnecessary id tag
         for unique_path in dailies.keys():
             dailies_total += dailies[unique_path]
-        self.requests['daily'][self.__today()] += dailies_total
-
+        try:
+            self.requests['daily'][self.__today()] += dailies_total
+        except KeyError:
+            self.requests['daily'][self.__today()] = 0
+            self.requests['daily'][self.__today()] += dailies_total
         for collection in list(self.app.db.requests_db.list_collection_names()):  # ignore IDE
             collection_list = self.app.db.requests_db[collection].find({})
             for document in collection_list:
