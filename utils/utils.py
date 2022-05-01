@@ -94,3 +94,7 @@ def RemoveUriArguments(request: flask.Request, argument):
     uri_base = str(request.full_path).split(argument_data)[0]
     return uri_base
 
+def ClearQuestion(question: str):
+    if question[-1] == '?':
+        return question[:-1]
+    return question
