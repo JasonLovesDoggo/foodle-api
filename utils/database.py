@@ -28,7 +28,7 @@ class Database:
             server_api=ServerApi('1'))
         # the databases
         self.stats_db = self.client.stats
-        self.words_db = self.client.words_db
+        self.words = self.client.words
         # logger
         self.log = getLogger(__name__)
 
@@ -41,7 +41,7 @@ class Database:
         self.SetOldDataIDS()
 
         self.SendRequestIN = 0  # see self.CheckBacklogs
-        self.WordLogs = self.words_db[datetime.today().strftime('%Y-%m-%d')].find_one(ObjectId(self.WordObjID))
+        self.WordLogs = self.words[datetime.today().strftime('%Y-%m-%d')].find_one(ObjectId(self.WordObjID))
 
     def win(self, mode: str, word: str, guesses: int):
         mode = mode.lower()
@@ -79,12 +79,15 @@ class Database:
     def SetOldDataIDS(self):
         """ So the db doesn'ttttt have to re-query the database every time it wants to update the requests  """
         today: str = datetime.today().strftime('%Y-%m-%d')
-        wdb = self.words_db[today]
-        self.WordObjID = str(wdb.find_one()['_id'])
+        wdb = self.words[today]
+        try:
+            self.WordObjID = str(wdb.find_one()['_id'])
+        except TypeError:
+            self.WordObjID = wdb.insert_one({}).inserted_id
 
     def _SendWordData(self):
         self.log.info(f'Sending {BACKLOGLIMIT} Words\'s data to the database')
-        rdbd = self.words_db[datetime.today().strftime('%Y-%m-%d')]
+        rdbd = self.words[datetime.today().strftime('%Y-%m-%d')]
         rdbd.find_one_and_replace({"_id": ObjectId(self.WordObjID)}, self.WordLogs)
 
     def CheckBacklogs(self):
