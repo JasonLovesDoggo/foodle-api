@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: '16'
 
-      - run: npm install seedrandom
+      - run: npm install
       - run: node get_words.js
 
       - name: commit files
