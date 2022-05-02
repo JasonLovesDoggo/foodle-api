@@ -1,43 +1,59 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.seededRandomInt = exports.modeData = exports.newSeed = void 0;
 var seedrandom = require('seedrandom');
 var fs = require('fs'); // export the datax
-var wordlist_json_1 = __importDefault(require("./data/wordlist.json"));
+var rawdata = fs.readFileSync('./data/wordlist.json');
+var wordList = JSON.parse(rawdata);
 var data = {};
 var daily;
 function newSeed(mode) {
-    var today = new Date();
+    var now = Date.now();
     switch (mode) {
         case 'daily':
-            return new Date(Date.UTC(today.getFullYear(), today.getMonth(), today.getDate())).valueOf();
+            return Date.UTC(1970, 0, 1 + Math.floor((now - (new Date().getTimezoneOffset() * 60000 /* MINUTE */)) / 86400000 /* DAY */));
         case 'hourly':
-            return new Date(today.getFullYear(), today.getMonth(), today.getDate(), today.getHours()).valueOf();
+            return now - (now % 3600000 /* HOUR */);
+        // case GameMode.minutely:
+        // 	return now - (now % ms.MINUTE);
     }
 }
 exports.newSeed = newSeed;
 exports.modeData = {
     modes: [
         {
-            name: "Daily", unit: 86400000, start: 1642370400000,
-            seed: newSeed('daily')
-        }, {
+            name: "Daily",
+            unit: 86400000 /* DAY */,
+            start: 1642370400000,
+            seed: newSeed('daily'),
+            historical: false,
+            streak: true,
+        },
+        {
             name: "Hourly",
-            unit: 3600000,
+            unit: 3600000 /* HOUR */,
             start: 1642528800000,
-            seed: newSeed('hourly')
+            seed: newSeed('hourly'),
+            historical: false,
+            icon: "m50,7h100v33c0,40 -35,40 -35,60c0,20 35,20 35,60v33h-100v-33c0,-40 35,-40 35,-60c0,-20 -35,-20 -35,-60z",
+            streak: true,
         }
+        // {
+        // 	name: "Minutely",
+        // 	unit: ms.MINUTE,
+        // 	start: 1642528800000,	// 18/01/2022 8:00pm
+        // 	seed: newSeed(GameMode.minutely),
+        // 	historical: false,
     ]
 };
+var dailyword = wordList[seededRandomInt(0, wordList.length, exports.modeData.modes[0].seed)];
+console.log(dailyword);
 function seededRandomInt(min, max, seed) {
     var rng = seedrandom("".concat(seed));
     return Math.floor(min + (max - min) * rng());
 }
 exports.seededRandomInt = seededRandomInt;
-daily = wordlist_json_1["default"][(seededRandomInt(0, wordlist_json_1["default"].length, exports.modeData.modes[0].seed))]; // change to 1 for hourly
+daily = wordList[(seededRandomInt(0, wordList.length, exports.modeData.modes[0].seed))]; // change to 1 for hourly
 data['daily'] = daily;
 var hourlys = data['hourly'] = {};
 // @ts-ignore
@@ -46,7 +62,7 @@ var today = new Date();
 for (var time in x) {
     // @ts-ignore
     var tempdate = new Date(today.getFullYear(), today.getMonth(), today.getDate(), time).valueOf();
-    hourlys[time.toString()] = wordlist_json_1["default"][(seededRandomInt(0, wordlist_json_1["default"].length, tempdate))];
+    hourlys[time.toString()] = wordList[(seededRandomInt(0, wordList.length, tempdate))];
 }
 var lastupdated = "".concat(today.getDate(), "/").concat(today.getMonth() + 1, "/").concat(today.getFullYear());
 data['lastupdated'] = lastupdated;
