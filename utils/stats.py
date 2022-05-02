@@ -5,7 +5,6 @@ from typing import Dict, List
 from bson import ObjectId
 from cachetools import cached, TTLCache
 
-from utils import modes
 from utils.modes import Modes
 from utils.timer import RepeatedTimer
 from utils.utils import log, ClearQuestion
@@ -28,8 +27,9 @@ class Stats:
         try:
             self.total_reqsObjID = str(self.total_stats_db.find_one()['_id'])
         except TypeError:
-            self.total_reqsObjID = str(
-                self.total_stats_db.insert_one({}).__inserted_id)  # covers initial database creation
+            self.total_stats_db.insert_one({})
+            self.total_reqsObjID = str(self.total_stats_db.find_one()[
+                                           '_id'])  # i know .__inserted_id, but it doesn't seem to work  # covers initial database creation
         self._load_request_count()
         self.rt_reqs = RepeatedTimer(60 * 5, self.__SendStatsData)  # run every 5 minutes
 
@@ -71,7 +71,7 @@ class Stats:
         """
         returns total uptime of the api
         uses a 15s TTL cache so that it doesn't get strained if used very often
-        :return: dict total seconds in multiple formats
+        :return: a dict that has uptime info in multiple formats
         """
 
         now = time.time() - self.__start_time_epoc  # total time in seconds
@@ -84,8 +84,12 @@ class Stats:
         log.debug('requesting requests db')
 
         req_count = self.total_stats_db.find_one({'_id': ObjectId(self.total_reqsObjID)})
-        dailies = req_count['count']['dailies']  # {'2022-04-31': 4903, '2022-05-01': 200}
-        print(dailies)
+        req_count = self.total_stats_db.find_one({'_id': ObjectId(self.total_reqsObjID)})
+        try:
+            dailies = req_count['count']['dailies']
+        except KeyError:
+            dailies = {'2022-04-31': 4903, '2022-05-01': 200}
+            print('send a request to the api, the database needs information.')
 
         for day in dailies.keys():
             if day == self.__today():
