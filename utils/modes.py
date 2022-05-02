@@ -1,4 +1,5 @@
 import enum
+from typing import Literal
 
 
 def swap_mode(mode: str):
@@ -9,10 +10,13 @@ def swap_mode(mode: str):
         return Modes.DAILY
     elif mode == "hourly":
         return Modes.HOURLY
-    #elif mode == "minutely":
+    # elif mode == "minutely":
     #    return Modes.MINUTELY
     else:
         raise ValueError("Invalid mode: " + mode + " is not a valid mode.")
+
+
+Guesses = Literal[1, 2, 3, 4, 5, 6, 0]
 
 
 class Modes(enum.Enum):

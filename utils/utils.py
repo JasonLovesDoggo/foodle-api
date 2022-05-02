@@ -89,7 +89,12 @@ def CreateErrorResponse(error: str, status_code: int):
     return jsonify({'status': status_code, 'error': error, })
 
 
-def RemoveUriArguments(request: flask.Request, argument):
+def RemoveUriArguments(request: flask.Request, argument) -> str:
+    """
+    :param request: the flask request object
+    :param argument: the closest argument to remove e.g. if the URI route was /api/v1/<word>/<mode> then the argument to input would be word
+    :return: the original request without the arguments
+    """
     argument_data = str(request.view_args[argument])
     uri_base = str(request.full_path).split(argument_data)[0]
     return uri_base
@@ -98,3 +103,7 @@ def ClearQuestion(question: str):
     if question[-1] == '?':
         return question[:-1]
     return question
+
+def ok():
+    return jsonify({'status': 200}), 200
+

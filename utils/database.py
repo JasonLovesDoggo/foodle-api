@@ -27,8 +27,9 @@ class Database:
             f"mongodb+srv://Jason:{pq(str(password))}@foodle.yiz9a.mongodb.net/{pq(str(environ.get('database')))}?retryWrites=true&w=majority",
             server_api=ServerApi('1'))
         # the databases
-        self.stats_db = self.client.stats
+        self.stats = self.client.stats
         self.words = self.client.words
+        self.games = self.client.games
         # logger
         self.log = getLogger(__name__)
 
@@ -68,12 +69,12 @@ class Database:
 
     def _SendWins(self):
         self.log.info(f'Sending {BACKLOGLIMIT} wins to the database')
-        self.stats_db['wins'].insert_many(self.WinBacklog)
+        self.stats['wins'].insert_many(self.WinBacklog)
         self.WinBacklog = []
 
     def _SendLosses(self):
         self.log.info(f'Sending {BACKLOGLIMIT} losses to the database')
-        self.stats_db['losses'].insert_many(self.LoseBacklog)
+        self.stats['losses'].insert_many(self.LoseBacklog)
         self.LoseBacklog = []
 
     def SetOldDataIDS(self):

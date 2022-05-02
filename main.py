@@ -9,7 +9,8 @@ from werkzeug.exceptions import HTTPException
 from werkzeug.utils import import_string
 
 from utils.foodle import Foodle
-from utils.utils import RemoveUriArguments, get_word, get_daily, number
+from utils.modes import Modes
+from utils.utils import RemoveUriArguments, get_word, get_daily, number, ok
 
 logging.basicConfig(format="%(asctime)s - [%(name)s | %(filename)s:%(lineno)d] - %(levelname)s - %(message)s",
                     filename="api.log", filemode="w+", level=logging.DEBUG)
@@ -93,10 +94,10 @@ def function_name(error):
 
 @app.get('/v1/foodle/definition/<word>')  # if word not in dict try getting from the dictionaryapi
 def definition(word):
-    app.db.LogWord(word)
+    #app.db.LogWord(word)
     app.stats.LogRequest(RemoveUriArguments(request, 'word'),
                          209)
-    return get_word(word)
+    return get_word(word), 200
 
 
 @app.get("/v1/foodle/word/daily")
@@ -121,21 +122,31 @@ def search_query_infinite():
 
 # I know app.post but a plugin im using to debug doesn't
 @app.route("/v1/foodle/stats/win/<mode>/<word>/<guesses>", methods=["POST"])
-def win(mode: str, word: str, guesses: int):
+def win(mode: Modes, word: str, guesses: int):
     app.stats.LogRequest(RemoveUriArguments(request, 'mode'), 200)
     app.db.win(mode, word, guesses)  # POST http://127.0.0.1:5000/v1/foodle/stats/win/daily/pizza/5
-    return jsonify({'status': 200})
+    return ok()
 
 
 @app.route("/v1/foodle/stats/lose/<mode>/<word>/<guesses>", methods=["POST"])
-def lose(mode: str, word: str, guesses: int):
+def lose(mode: Modes, word: str, guesses: int):
     app.stats.LogRequest(RemoveUriArguments(request, 'mode'), 201)
     app.db.lose(mode, word, guesses)
-    return jsonify({'status': 200})
+    return ok()
 
 
 @app.route("/v1/foodle/stats/concede/<mode>/<word>/<guesses>", methods=["POST"])
-def concede(mode: str, word: str, guesses: int):
+def concede(mode: Modes, word: str, guesses: int):
     app.stats.LogRequest(RemoveUriArguments(request, 'mode'), 202)
     app.db.concede(mode, word, guesses)
-    return jsonify({'status': 200})
+    return ok()
+
+@app.route("/v1/foodle/guess/<mode>/<word>", methods=["POST", 'GET'])  # todo change to post only
+def guess(mode: Modes, word: str):
+    app.stats.LogRequest(RemoveUriArguments(request, 'mode'), 203)
+    app.stats.log_word(word, mode),
+    return ok()
+
+
+
+
