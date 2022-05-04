@@ -3,6 +3,6 @@ import logging
 
 class FaviconFilter(logging.Filter):
     def filter(self, record):
-        return not '/favicon.ico HTTP' in record.getMessage()
+        return '/favicon.ico HTTP' not in record.getMessage()
 
 # logger.addFilter(NoParsingFilter())
