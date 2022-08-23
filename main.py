@@ -23,7 +23,7 @@ app = Foodle(__name__, template_folder='templates')
 @app.route('/')
 def index():
     app.stats.LogRequest(request.full_path, 0)
-    return redirect('https://nasoj.me/foodle/')
+    return redirect('https://jasoncodes.ca/foodle/')
 
 
 @app.before_request
